@@ -24,6 +24,9 @@ const helpLinks = [
   { href: '/legal', label: 'Legal & policies' },
 ] as const;
 
+const navIconBtn =
+  'inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border-0 bg-transparent p-0 text-black transition hover:bg-black/[0.06] active:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20';
+
 function menuItemClass(focus: boolean) {
   return `block w-full min-h-11 px-4 py-3 text-left text-sm text-gray-900 sm:py-2 ${
     focus ? 'bg-gray-100' : ''
@@ -45,16 +48,17 @@ const Navbar = () => {
           </div>
 
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-            <Link href="/cart" className="retro-button p-2" title="Cart" aria-label="Shopping cart">
+            <Link
+              href="/cart"
+              className={navIconBtn}
+              title="Cart"
+              aria-label="Shopping cart"
+            >
               <ShoppingCartIcon className="h-6 w-6" />
             </Link>
 
             <Menu as="div" className="relative">
-              <MenuButton
-                className="retro-button p-2"
-                title="Account"
-                aria-label="Account menu"
-              >
+              <MenuButton className={navIconBtn} title="Account" aria-label="Account menu">
                 <UserCircleIcon className="h-6 w-6 shrink-0" aria-hidden />
               </MenuButton>
               <MenuItems
