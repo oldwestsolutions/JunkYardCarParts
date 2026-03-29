@@ -43,9 +43,9 @@ export default function CartPage() {
   const total = subtotal + shipping;
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
+        <h1 className="text-2xl font-bold text-gray-900 mb-2 sm:text-3xl">Shopping Cart</h1>
         <p className="text-sm text-gray-600 mb-8 max-w-2xl">
           Review Copart-sourced and marketplace items together. At checkout you can
           choose Bitcoin on supported orders and schedule bonded mechanic installation
@@ -91,24 +91,27 @@ export default function CartPage() {
                         ${item.price.toFixed(2)}
                       </p>
                       <div className="flex items-center mt-4">
-                        <div className="flex items-center border rounded-md">
+                        <div className="flex items-center rounded-md border">
                           <button
+                            type="button"
                             onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                            className="px-3 py-1 text-gray-600 hover:bg-gray-100"
+                            className="min-h-11 min-w-11 px-3 py-2 text-lg text-gray-600 hover:bg-gray-100 touch-manipulation"
                           >
                             -
                           </button>
-                          <span className="px-3 py-1">{item.quantity}</span>
+                          <span className="min-w-[2rem] px-2 py-2 text-center">{item.quantity}</span>
                           <button
+                            type="button"
                             onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                            className="px-3 py-1 text-gray-600 hover:bg-gray-100"
+                            className="min-h-11 min-w-11 px-3 py-2 text-lg text-gray-600 hover:bg-gray-100 touch-manipulation"
                           >
                             +
                           </button>
                         </div>
                         <button
+                          type="button"
                           onClick={() => removeItem(item.id)}
-                          className="ml-4 text-red-600 hover:text-red-700"
+                          className="ml-4 min-h-11 shrink-0 text-sm font-medium text-red-600 hover:text-red-700"
                         >
                           Remove
                         </button>
@@ -143,9 +146,12 @@ export default function CartPage() {
                     </div>
                   </div>
                 </div>
-                <button className="w-full bg-red-600 text-white py-3 rounded-md hover:bg-red-700 transition-colors">
+                <Link
+                  href="/checkout"
+                  className="flex min-h-12 w-full items-center justify-center rounded-md bg-red-600 py-3 text-base font-semibold text-white hover:bg-red-700 transition-colors"
+                >
                   Proceed to Checkout
-                </button>
+                </Link>
                 <Link
                   href="/catalog"
                   className="block text-center text-red-600 hover:text-red-700 mt-4"

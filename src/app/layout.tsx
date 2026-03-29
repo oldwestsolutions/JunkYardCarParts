@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
@@ -6,6 +6,14 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  viewportFit: "cover",
+  themeColor: "#111827",
+};
 
 export const metadata: Metadata = {
   title:
@@ -29,10 +37,12 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" className="overflow-x-hidden">
+      <body
+        className={`${inter.className} min-h-dvh overflow-x-hidden bg-[var(--background)] text-[var(--foreground)] antialiased [text-size-adjust:100%]`}
+      >
         <Navbar />
-        <main className="min-h-screen">
+        <main className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
           {children}
         </main>
         <Footer />

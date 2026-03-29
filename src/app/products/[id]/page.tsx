@@ -38,12 +38,12 @@ export default function ProductPage() {
   const [quantity, setQuantity] = useState(1);
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col gap-6 md:flex-row md:gap-8">
           {/* Product Images */}
-          <div className="md:w-1/2">
-            <div className="relative h-96 mb-4">
+          <div className="w-full md:w-1/2">
+            <div className="relative mb-4 h-64 w-full sm:h-80 md:h-96">
               <Image
                 src={product.images[selectedImage]}
                 alt={product.name}
@@ -52,12 +52,13 @@ export default function ProductPage() {
                 sizes="(max-width:768px)100vw,50vw"
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {product.images.map((image, index) => (
                 <button
                   key={index}
+                  type="button"
                   onClick={() => setSelectedImage(index)}
-                  className={`relative h-20 w-20 rounded-md overflow-hidden ${
+                  className={`relative h-16 w-16 shrink-0 overflow-hidden rounded-md sm:h-20 sm:w-20 touch-manipulation ${
                     selectedImage === index ? 'ring-2 ring-red-600' : ''
                   }`}
                 >
@@ -74,8 +75,8 @@ export default function ProductPage() {
           </div>
 
           {/* Product Info */}
-          <div className="md:w-1/2">
-            <h1 className="text-3xl font-bold text-gray-900 mb-2">
+          <div className="w-full min-w-0 md:w-1/2">
+            <h1 className="text-2xl font-bold text-gray-900 mb-2 sm:text-3xl break-words">
               {product.name}
             </h1>
             <div className="flex items-center mb-4">
@@ -91,7 +92,7 @@ export default function ProductPage() {
             <p className="text-2xl font-bold text-red-600 mb-6">
               ${product.price.toFixed(2)}
             </p>
-            <p className="text-gray-600 mb-6">{product.description}</p>
+            <p className="text-sm text-gray-600 mb-6 sm:text-base break-words">{product.description}</p>
 
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-3">
@@ -152,24 +153,27 @@ export default function ProductPage() {
               </ul>
             </div>
 
-            <div className="flex items-center gap-4 mb-6">
-              <div className="flex items-center border rounded-md">
+            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4 mb-6">
+              <div className="flex w-fit items-center rounded-md border">
                 <button
+                  type="button"
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                  className="px-3 py-2 text-gray-600 hover:bg-gray-100"
+                  className="min-h-11 min-w-11 px-3 py-2 text-lg text-gray-600 hover:bg-gray-100 touch-manipulation"
                 >
                   -
                 </button>
-                <span className="px-3 py-2">{quantity}</span>
+                <span className="min-w-[2.5rem] px-2 py-2 text-center">{quantity}</span>
                 <button
+                  type="button"
                   onClick={() => setQuantity(quantity + 1)}
-                  className="px-3 py-2 text-gray-600 hover:bg-gray-100"
+                  className="min-h-11 min-w-11 px-3 py-2 text-lg text-gray-600 hover:bg-gray-100 touch-manipulation"
                 >
                   +
                 </button>
               </div>
               <button
-                className={`flex-1 bg-red-600 text-white py-2 px-4 rounded-md hover:bg-red-700 transition-colors ${
+                type="button"
+                className={`min-h-12 w-full flex-1 rounded-md bg-red-600 px-4 py-3 text-base font-semibold text-white hover:bg-red-700 transition-colors sm:w-auto sm:min-w-[12rem] ${
                   !product.inStock ? 'opacity-50 cursor-not-allowed' : ''
                 }`}
                 disabled={!product.inStock}

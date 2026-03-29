@@ -31,7 +31,7 @@ const helpLinks = [
 ] as const;
 
 function menuItemClass(focus: boolean) {
-  return `block w-full px-4 py-2 text-left text-sm text-gray-900 ${
+  return `block w-full min-h-11 px-4 py-3 text-left text-sm text-gray-900 sm:py-2 ${
     focus ? 'bg-gray-100' : ''
   }`;
 }
@@ -40,24 +40,24 @@ const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-[var(--primary-color)] border-b-2 border-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
+    <nav className="sticky top-0 z-50 bg-[var(--primary-color)] border-b-2 border-black pt-[env(safe-area-inset-top)]">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between min-h-14 sm:h-16 gap-2">
+          <div className="flex min-w-0 flex-1 items-center pr-2">
             <Link
               href="/"
-              className="text-2xl font-bold text-black [text-shadow:2px_2px_0px_#FFFFFF]"
+              className="truncate text-base font-bold leading-tight text-black [text-shadow:2px_2px_0px_#FFFFFF] sm:text-xl sm:leading-normal md:text-2xl"
             >
               JUNKYARD CAR PARTS
             </Link>
           </div>
 
-          <div className="flex items-center space-x-2 sm:space-x-4">
-            <Link href="/cart" className="retro-button p-2" title="Cart">
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+            <Link href="/cart" className="retro-button p-2" title="Cart" aria-label="Shopping cart">
               <ShoppingCartIcon className="h-6 w-6" />
             </Link>
 
-            <Menu as="div" className="relative">
+            <Menu as="div" className="relative hidden md:block">
               <MenuButton className="retro-button flex items-center gap-1.5 px-3 py-2 text-sm font-bold uppercase tracking-wide">
                 <UserCircleIcon className="h-6 w-6 shrink-0" aria-hidden />
                 <span className="hidden sm:inline">Account</span>
@@ -66,7 +66,7 @@ const Navbar = () => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="z-[100] mt-2 w-60 origin-top-right rounded-md border-2 border-black bg-white py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [--anchor-gap:4px] data-[closed]:scale-95 data-[closed]:opacity-0 transition data-[open]:duration-100 data-[closed]:duration-75"
+                className="z-[100] mt-2 w-[min(18rem,calc(100vw-1.5rem))] max-h-[min(70vh,28rem)] origin-top-right overflow-y-auto rounded-md border-2 border-black bg-white py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [--anchor-gap:6px] data-[closed]:scale-95 data-[closed]:opacity-0 transition data-[open]:duration-100 data-[closed]:duration-75"
               >
                 <MenuHeading className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
                   Shopping
@@ -110,7 +110,7 @@ const Navbar = () => {
             <button
               type="button"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden retro-button p-2"
+              className="retro-button min-w-[4.5rem] px-2 text-xs md:hidden sm:text-sm"
               aria-expanded={isMenuOpen}
               aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
             >
@@ -121,11 +121,11 @@ const Navbar = () => {
       </div>
 
       {isMenuOpen && (
-        <div className="md:hidden border-t-2 border-black bg-[var(--primary-color)]">
-          <div className="px-2 pt-2 pb-3 space-y-2 sm:px-3">
+        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain md:hidden border-t-2 border-black bg-[var(--primary-color)]">
+          <div className="space-y-2 px-2 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-3">
             <Link
               href="/cart"
-              className="block retro-button w-full text-center"
+              className="block min-h-12 w-full py-3 text-center retro-button sm:min-h-11 sm:py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               <div className="flex items-center justify-center space-x-2">
@@ -138,7 +138,7 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block retro-button w-full text-center text-sm"
+                className="block min-h-12 w-full py-3 text-center text-sm retro-button sm:min-h-11 sm:py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -151,7 +151,7 @@ const Navbar = () => {
               <Link
                 key={item.href}
                 href={item.href}
-                className="block retro-button w-full text-center text-sm"
+                className="block min-h-12 w-full py-3 text-center text-sm retro-button sm:min-h-11 sm:py-2"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {item.label}
@@ -159,7 +159,7 @@ const Navbar = () => {
             ))}
             <a
               href="mailto:support@junkyardcarparts.com"
-              className="block retro-button w-full text-center text-sm"
+              className="block min-h-12 w-full py-3 text-center text-sm retro-button sm:min-h-11 sm:py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Email support

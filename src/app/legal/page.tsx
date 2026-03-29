@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function LegalPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <p className="text-sm text-gray-500 mb-6">
           <Link href="/" className="text-red-600 hover:text-red-700">
             Home
@@ -17,8 +17,8 @@ export default function LegalPage() {
           <span className="mx-2">/</span>
           Legal
         </p>
-        <h1 className="text-3xl font-bold text-gray-900 mb-6">Legal</h1>
-        <p className="text-gray-700 mb-8">
+        <h1 className="text-2xl font-bold text-gray-900 mb-6 sm:text-3xl">Legal</h1>
+        <p className="text-sm text-gray-700 mb-8 sm:text-base">
           Central index for policies governing use of the Junkyard Car Parts marketplace,
           shipping and returns, and privacy. Auto Equity Group affiliated operations follow
           applicable federal and state motor-vehicle and commerce rules.

@@ -137,12 +137,12 @@ function ProductsContent({ basePath }: ProductsContentProps) {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-8">
+    <div className="min-h-screen bg-gray-50 py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-3">
+        <h1 className="text-2xl font-bold text-gray-900 mb-3 sm:text-3xl">
           Global inventory & Copart auction parts
         </h1>
-        <p className="text-gray-700 mb-3 max-w-3xl">
+        <p className="text-sm text-gray-700 mb-3 max-w-3xl sm:text-base">
           Explore our global auto parts marketplace with regulated Copart
           participation, supplier verification, and lot-level transparency on
           eligible listings. Every card shows{' '}
@@ -151,7 +151,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
           <span className="font-medium">verification notes</span>—plus a Copart lot
           ID when the unit is Copart-sourced.
         </p>
-        <p className="text-sm text-gray-600 mb-6 max-w-3xl">
+        <p className="text-sm text-gray-600 mb-6 max-w-3xl sm:text-base">
           This catalog sits inside a broader <span className="font-medium">global auto
           parts marketplace</span> that also lists <span className="font-medium">
           Copart auction parts</span> when regulations and seller permissions align.
@@ -162,7 +162,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
 
         <form
           onSubmit={onSearchSubmit}
-          className="flex flex-col sm:flex-row gap-2 mb-8 max-w-2xl"
+          className="flex flex-col gap-2 mb-6 max-w-2xl sm:mb-8 sm:flex-row"
           role="search"
         >
           <label htmlFor="catalog-search" className="sr-only">
@@ -174,12 +174,13 @@ function ProductsContent({ basePath }: ProductsContentProps) {
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
             placeholder="Search by part name, category, condition…"
-            className="flex-1 rounded-md border border-gray-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+            className="min-h-12 w-full flex-1 rounded-md border border-gray-300 px-4 py-3 text-base text-gray-900 shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
             autoComplete="off"
+            enterKeyHint="search"
           />
           <button
             type="submit"
-            className="rounded-md bg-red-600 px-6 py-2.5 font-semibold text-white hover:bg-red-700 transition-colors"
+            className="min-h-12 shrink-0 rounded-md bg-red-600 px-6 py-3 font-semibold text-white hover:bg-red-700 transition-colors"
           >
             Search
           </button>
@@ -204,14 +205,14 @@ function ProductsContent({ basePath }: ProductsContentProps) {
           Live listings
         </h2>
 
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
-          <div className="flex flex-wrap gap-2">
+        <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+          <div className="-mx-1 flex max-w-full flex-wrap gap-2 overflow-x-auto px-1 pb-1 [-webkit-overflow-scrolling:touch] sm:mx-0 sm:overflow-visible sm:px-0">
             {categories.map((category) => (
               <button
                 key={category}
                 type="button"
                 onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium ${
+                className={`min-h-11 shrink-0 rounded-full px-4 py-2 text-sm font-medium touch-manipulation ${
                   selectedCategory === category
                     ? 'bg-red-600 text-white'
                     : 'bg-white text-gray-700 hover:bg-gray-100'
@@ -222,15 +223,15 @@ function ProductsContent({ basePath }: ProductsContentProps) {
             ))}
           </div>
 
-          <div className="flex items-center gap-2">
-            <label htmlFor="sort" className="text-sm text-gray-600">
+          <div className="flex w-full items-center gap-2 sm:w-auto">
+            <label htmlFor="sort" className="shrink-0 text-sm text-gray-600">
               Sort by:
             </label>
             <select
               id="sort"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="rounded-md border-gray-300 text-sm"
+              className="min-h-11 min-w-0 flex-1 rounded-md border border-gray-300 bg-white px-3 py-2 text-base text-gray-900 sm:flex-none sm:text-sm"
             >
               <option value="featured">Featured</option>
               <option value="price-low">Price: Low to High</option>
@@ -241,7 +242,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
         </div>
 
         {sortedProducts.length === 0 ? (
-          <div className="rounded-lg border border-gray-200 bg-white p-12 text-center text-gray-600">
+          <div className="rounded-lg border border-gray-200 bg-white p-8 text-center text-gray-600 sm:p-12">
             <p className="text-lg font-medium text-gray-900 mb-2">No parts match your search</p>
             <p className="mb-4">Try different keywords or browse all categories.</p>
             <button
@@ -257,7 +258,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
             </button>
           </div>
         ) : (
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {sortedProducts.map((product) => (
               <Link
                 key={product.id}
@@ -274,11 +275,11 @@ function ProductsContent({ basePath }: ProductsContentProps) {
                       sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                     />
                   </div>
-                  <div className="p-4">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                  <div className="p-3 sm:p-4">
+                    <h3 className="text-base font-semibold text-gray-900 mb-2 sm:text-lg break-words">
                       {product.name}
                     </h3>
-                    <p className="text-xs text-gray-500 mb-1">
+                    <p className="text-xs text-gray-500 mb-1 break-words">
                       <span className="font-semibold text-gray-600">Source: </span>
                       {product.sourceLocation}
                     </p>
@@ -311,7 +312,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
                         <span className="text-gray-600">{product.rating}</span>
                       </div>
                     </div>
-                    <span className="mt-4 block w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors text-center">
+                    <span className="mt-4 block min-h-11 w-full rounded-md bg-red-600 py-3 text-center text-sm font-semibold text-white hover:bg-red-700 transition-colors sm:py-2">
                       Add to Cart
                     </span>
                   </div>
@@ -332,7 +333,9 @@ export default function ProductsCatalog({ basePath = '/catalog' }: ProductsCatal
     <Suspense
       fallback={
         <div className="min-h-screen bg-gray-50 py-8">
-          <div className="max-w-7xl mx-auto px-4 text-gray-600">Loading catalog…</div>
+          <div className="mx-auto max-w-7xl px-4 text-center text-gray-600">
+            Loading catalog…
+          </div>
         </div>
       }
     >

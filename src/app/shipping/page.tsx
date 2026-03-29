@@ -9,8 +9,8 @@ export const metadata: Metadata = {
 
 export default function ShippingPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+      <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <p className="text-sm text-gray-500 mb-6">
           <Link href="/" className="text-red-600 hover:text-red-700">
             Home
@@ -18,10 +18,10 @@ export default function ShippingPage() {
           <span className="mx-2">/</span>
           Shipping &amp; Returns
         </p>
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+        <h1 className="text-2xl font-bold text-gray-900 mb-6 sm:mb-8 sm:text-3xl">
           Shipping &amp; Returns
         </h1>
-        <div className="prose prose-gray max-w-none space-y-6 text-gray-700">
+        <div className="prose prose-gray max-w-none space-y-6 text-sm text-gray-700 sm:text-base">
           <p className="text-sm text-gray-500">
             Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
           </p>

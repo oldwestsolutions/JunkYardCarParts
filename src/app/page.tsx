@@ -73,28 +73,28 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[var(--background-color)]">
       {/* Hero Section — full viewport minus navbar so next band sits below the fold */}
-      <section className="relative min-h-[calc(100dvh-4rem)] bg-[var(--primary-color)] border-b-2 border-black flex flex-col justify-center">
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex flex-col lg:flex-row items-center gap-10 lg:min-h-[calc(100dvh-4rem)]">
+      <section className="relative min-h-[calc(100dvh-3.5rem)] bg-[var(--primary-color)] border-b-2 border-black flex flex-col justify-center sm:min-h-[calc(100dvh-4rem)]">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:min-h-[calc(100dvh-4rem)]">
           <div className="max-w-2xl w-full">
-            <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black [text-shadow:3px_3px_0px_#FFFFFF]">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-black [text-shadow:3px_3px_0px_#FFFFFF] break-words">
               JUNKYARD CAR PARTS
             </h1>
-            <p className="text-2xl mb-6 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-xl sm:text-2xl mb-4 sm:mb-6 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
               Your Ultimate Source for Custom &amp; Aftermarket Parts!
             </p>
-            <p className="text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-base sm:text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
               Parts sourced from trusted suppliers across the U.S. and worldwide.
             </p>
-            <p className="text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-base sm:text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
               We leverage Copart auctions where permitted to deliver the best deals.
             </p>
-            <p className="text-lg mb-8 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
               Pay with Bitcoin and book bonded, verified local mechanics when you need
               safe, professional installation.
             </p>
             <form
               onSubmit={onHeroSearch}
-              className="flex flex-col sm:flex-row gap-3 max-w-xl"
+              className="flex flex-col gap-3 max-w-xl sm:flex-row"
               role="search"
               aria-label="Search parts catalog"
             >
@@ -107,12 +107,13 @@ export default function Home() {
                 value={heroSearch}
                 onChange={(e) => setHeroSearch(e.target.value)}
                 placeholder="Search parts, brands, categories…"
-                className="flex-1 rounded-md border-2 border-black px-4 py-3 text-lg text-gray-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-black/30"
+                className="min-h-12 w-full flex-1 rounded-md border-2 border-black px-4 py-3 text-base text-gray-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-black/30 sm:text-lg"
                 autoComplete="off"
+                enterKeyHint="search"
               />
               <button
                 type="submit"
-                className="bg-[var(--accent-color)] hover:bg-[var(--secondary-color)] text-black px-8 py-3 rounded-md text-lg font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"
+                className="min-h-12 shrink-0 bg-[var(--accent-color)] hover:bg-[var(--secondary-color)] text-black px-6 py-3 rounded-md text-base font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors sm:px-8 sm:text-lg"
               >
                 Search
               </button>
@@ -143,7 +144,7 @@ export default function Home() {
                   >
                     {featuredParts.map((part, index) => (
                       <div key={index} className="w-full flex-shrink-0 group">
-                        <div className="relative h-[min(400px,50vh)] w-full overflow-hidden">
+                        <div className="relative h-[min(280px,42vh)] w-full overflow-hidden sm:h-[min(400px,50vh)]">
                           <Image
                             src={part.image}
                             alt={part.name}
@@ -172,7 +173,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={prevSlide}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
+                  className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-all duration-200 hover:bg-black/60 md:left-4 md:opacity-0 md:group-hover:opacity-100 opacity-100"
                   aria-label="Previous featured part"
                 >
                   <ChevronLeftIcon className="h-6 w-6" />
@@ -180,7 +181,7 @@ export default function Home() {
                 <button
                   type="button"
                   onClick={nextSlide}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
+                  className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-all duration-200 hover:bg-black/60 md:right-4 md:opacity-0 md:group-hover:opacity-100 opacity-100"
                   aria-label="Next featured part"
                 >
                   <ChevronRightIcon className="h-6 w-6" />
@@ -205,10 +206,10 @@ export default function Home() {
       </section>
 
       {/* Auto Equity Group — vehicle shopping */}
-      <section className="py-12 bg-gradient-to-r from-black/90 to-black/70">
+      <section className="py-8 sm:py-12 bg-gradient-to-r from-black/90 to-black/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="relative w-full md:w-[400px] h-[240px] rounded-lg overflow-hidden flex-shrink-0 border-2 border-white/10">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6 md:gap-8">
+            <div className="relative mx-auto w-full max-w-md md:max-w-none md:w-[400px] h-[200px] sm:h-[240px] rounded-lg overflow-hidden flex-shrink-0 border-2 border-white/10">
               <Image
                 src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80"
                 alt="New and pre-owned vehicles at an Auto Equity Group affiliated dealership lot"
@@ -219,17 +220,17 @@ export default function Home() {
               />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-white mb-2 sm:text-2xl">
                 Shop your next vehicle with Auto Equity Group
               </h3>
-              <p className="text-white/80 text-base mb-4">
+              <p className="text-white/80 text-sm sm:text-base mb-4">
                 Junkyard Car Parts sits alongside Auto Equity Group&apos;s retail and
                 remarketing footprint—so you are not only sourcing parts here, you can
                 shop cars, trucks, and SUVs through the same ecosystem of trusted
                 inventory, transparent pricing, and finance-friendly workflows AEG is
                 known for.
               </p>
-              <p className="text-white/80 text-base mb-4">
+              <p className="text-white/80 text-sm sm:text-base mb-4">
                 Whether you need a daily driver, a work truck, or something special to
                 match the build in your garage, start with AEG-backed selection and let
                 our teams help you land the right vehicle before you bolt on upgrades from
@@ -247,16 +248,16 @@ export default function Home() {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-16 bg-[var(--primary-color)] border-y-2 border-black">
+      <section className="py-10 sm:py-16 bg-[var(--primary-color)] border-y-2 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="retro-title">SHOP BY CATEGORY</h2>
-          <p className="text-center text-black/80 max-w-3xl mx-auto mb-10 text-base">
+          <h2 className="retro-title px-1">SHOP BY CATEGORY</h2>
+          <p className="text-center text-black/80 max-w-3xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base px-1">
             Browse a global auto parts marketplace built on regulated sourcing:
             Copart auction parts where permitted, clear condition notes, and suppliers
             screened for compliance. Crypto car parts payments and bonded mechanic
             installation options are available at checkout on eligible orders.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {[
               {
                 title: "ENGINE PARTS",
@@ -387,10 +388,10 @@ export default function Home() {
       </section>
 
       {/* Auto Equity Group */}
-      <section className="py-12 bg-gradient-to-r from-black/90 to-black/70">
+      <section className="py-8 sm:py-12 bg-gradient-to-r from-black/90 to-black/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="relative w-full md:w-[400px] h-[225px] rounded-lg overflow-hidden flex-shrink-0">
+          <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6 md:gap-8">
+            <div className="relative mx-auto w-full max-w-md md:max-w-none md:w-[400px] h-[200px] sm:h-[225px] rounded-lg overflow-hidden flex-shrink-0">
               <Image
                 src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
                 alt="Auto Equity Group — corporate stewardship of Junkyard Car Parts"
@@ -400,10 +401,10 @@ export default function Home() {
               />
             </div>
             <div className="flex-1">
-              <h3 className="text-2xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-white mb-2 sm:text-2xl">
                 Owned &amp; backed by Auto Equity Group (AEG)
               </h3>
-              <p className="text-white/80 text-base mb-4">
+              <p className="text-white/80 text-sm sm:text-base mb-4">
                 Junkyard Car Parts operates under the ownership of{" "}
                 <span className="text-white font-semibold">Auto Equity Group</span>, a
                 holding company focused on automotive retail, remarketing, and digital
@@ -411,7 +412,7 @@ export default function Home() {
                 verified supply chains, and the technology that connects buyers to real
                 inventory—not just listings.
               </p>
-              <p className="text-white/80 text-base mb-4">
+              <p className="text-white/80 text-sm sm:text-base mb-4">
                 That relationship means clearer sourcing standards, disciplined
                 operational support, and a long-term commitment to the mechanics,
                 dealers, and enthusiasts who rely on this platform every day.
