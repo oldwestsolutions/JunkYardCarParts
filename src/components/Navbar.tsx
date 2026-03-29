@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   Menu,
@@ -13,6 +14,7 @@ import { ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 
 const accountLinks = [
   { href: '/products', label: 'Shop all parts' },
+  { href: '/services', label: 'Services' },
   { href: '/products?q=Lighting', label: 'Lighting' },
   { href: '/products?q=Interior', label: 'Interior parts' },
   { href: '/cart', label: 'Cart' },
@@ -38,7 +40,16 @@ const Navbar = () => {
     <nav className="sticky top-0 z-50 bg-[var(--primary-color)] border-b-2 border-black pt-[env(safe-area-inset-top)]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between min-h-14 sm:h-16 gap-2">
-          <div className="flex min-w-0 flex-1 items-center pr-2">
+          <div className="flex min-w-0 flex-1 items-center gap-2 pr-2 sm:gap-3">
+            <Link href="/" className="shrink-0" aria-label="Junkyard Car Parts home">
+              <Image
+                src="/brand-placeholder.svg"
+                alt=""
+                width={40}
+                height={40}
+                className="h-9 w-9 rounded-md border-2 border-black bg-white/80 object-cover sm:h-10 sm:w-10"
+              />
+            </Link>
             <Link
               href="/"
               className="truncate text-base font-bold leading-tight text-black sm:text-xl sm:leading-normal md:text-2xl"

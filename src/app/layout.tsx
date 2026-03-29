@@ -3,7 +3,7 @@ import { Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
+import FooterSwitcher from "@/components/FooterSwitcher";
 import SiteJsonLd from "@/components/SiteJsonLd";
 import {
   DEFAULT_DESCRIPTION,
@@ -87,7 +87,7 @@ export default function RootLayout({
         <main className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
           {children}
         </main>
-        <Footer />
+        <FooterSwitcher />
         <Analytics />
       </body>
     </html>

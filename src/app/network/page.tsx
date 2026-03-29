@@ -44,7 +44,7 @@ const layers = [
 
 export default function NetworkPage() {
   return (
-    <div className="min-h-screen bg-neutral-50">
+    <div className="min-h-screen bg-white">
       <section className="relative overflow-hidden border-b border-neutral-200 bg-neutral-900 text-white">
         <div className="absolute inset-0">
           <Image

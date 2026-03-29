@@ -18,7 +18,7 @@ const DROPBOX_PRIVACY_URL =
 
 export default function LegalPage() {
   return (
-    <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
+    <div className="min-h-screen bg-white py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <p className="text-sm text-gray-500 mb-6">
           <Link href="/" className="text-gray-800 underline-offset-4 hover:underline">

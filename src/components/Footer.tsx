@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 
@@ -8,6 +9,15 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Junkyard Car Parts</h3>
+            <div className="mb-4">
+              <Image
+                src="/brand-placeholder.svg"
+                alt=""
+                width={80}
+                height={80}
+                className="h-16 w-16 rounded-lg border border-white/20 bg-white/10 object-cover"
+              />
+            </div>
             <p className="flex items-start gap-2 text-sm text-gray-400 sm:text-base">
               <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-gray-300" aria-hidden />
               <span>Louisiana, USA</span>
@@ -25,6 +35,11 @@ const Footer = () => {
               <li>
                 <Link href="/signature" className="text-gray-400 hover:text-white">
                   Signature
+                </Link>
+              </li>
+              <li>
+                <Link href="/services" className="text-gray-400 hover:text-white">
+                  Services
                 </Link>
               </li>
             </ul>
