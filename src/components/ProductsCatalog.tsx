@@ -152,7 +152,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
           ID when the unit is Copart-sourced.
         </p>
         <p className="text-sm text-gray-600 mb-6 max-w-3xl sm:text-base">
-          This catalog sits inside a broader <span className="font-medium">global auto
+          This product inventory sits inside a broader <span className="font-medium">global auto
           parts marketplace</span> that also lists <span className="font-medium">
           Copart auction parts</span> when regulations and seller permissions align.
           Eligible checkouts support <span className="font-medium">crypto car parts
@@ -165,11 +165,11 @@ function ProductsContent({ basePath }: ProductsContentProps) {
           className="flex flex-col gap-2 mb-6 max-w-2xl sm:mb-8 sm:flex-row"
           role="search"
         >
-          <label htmlFor="catalog-search" className="sr-only">
+          <label htmlFor="products-search" className="sr-only">
             Search parts
           </label>
           <input
-            id="catalog-search"
+            id="products-search"
             type="search"
             value={searchInput}
             onChange={(e) => setSearchInput(e.target.value)}
@@ -328,13 +328,13 @@ function ProductsContent({ basePath }: ProductsContentProps) {
 
 type ProductsCatalogProps = { basePath?: string };
 
-export default function ProductsCatalog({ basePath = '/catalog' }: ProductsCatalogProps) {
+export default function ProductsCatalog({ basePath = '/products' }: ProductsCatalogProps) {
   return (
     <Suspense
       fallback={
         <div className="min-h-screen bg-gray-50 py-8">
           <div className="mx-auto max-w-7xl px-4 text-center text-gray-600">
-            Loading catalog…
+            Loading products…
           </div>
         </div>
       }

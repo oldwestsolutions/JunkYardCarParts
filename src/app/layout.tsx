@@ -37,7 +37,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="overflow-x-hidden">
+    <html lang="en" className="overflow-x-hidden scroll-smooth">
       <body
         className={`${inter.className} min-h-dvh overflow-x-hidden bg-[var(--background)] text-[var(--foreground)] antialiased [text-size-adjust:100%]`}
       >

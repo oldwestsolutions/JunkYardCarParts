@@ -20,7 +20,7 @@ export default function Home() {
   function onHeroSearch(e: FormEvent) {
     e.preventDefault();
     const q = heroSearch.trim();
-    router.push(q ? `/catalog?q=${encodeURIComponent(q)}` : "/catalog");
+    router.push(q ? `/products?q=${encodeURIComponent(q)}` : "/products");
   }
 
   const featuredParts = [
@@ -96,7 +96,7 @@ export default function Home() {
               onSubmit={onHeroSearch}
               className="flex flex-col gap-3 max-w-xl sm:flex-row"
               role="search"
-              aria-label="Search parts catalog"
+              aria-label="Search parts"
             >
               <label htmlFor="hero-search" className="sr-only">
                 Search parts
@@ -120,7 +120,7 @@ export default function Home() {
             </form>
             <p className="mt-4 text-sm text-black/80">
               <Link
-                href="/catalog"
+                href="/products"
                 className="underline font-semibold hover:text-black"
               >
                 View all parts
@@ -234,10 +234,10 @@ export default function Home() {
                 Whether you need a daily driver, a work truck, or something special to
                 match the build in your garage, start with AEG-backed selection and let
                 our teams help you land the right vehicle before you bolt on upgrades from
-                this catalog.
+                our inventory.
               </p>
               <Link
-                href="/catalog"
+                href="/products"
                 className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
               >
                 Find parts for your vehicle →
@@ -390,7 +390,7 @@ export default function Home() {
                 dealers, and enthusiasts who rely on this platform every day.
               </p>
               <Link
-                href="/catalog"
+                href="/products"
                 className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
               >
                 Explore inventory →

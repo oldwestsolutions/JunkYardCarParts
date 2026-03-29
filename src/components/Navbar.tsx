@@ -16,17 +16,16 @@ import {
 } from '@heroicons/react/24/outline';
 
 const accountLinks = [
-  { href: '/catalog', label: 'Shop all parts' },
-  { href: '/catalog?q=Lighting', label: 'Lighting' },
-  { href: '/catalog?q=Interior', label: 'Interior parts' },
+  { href: '/products', label: 'Shop all parts' },
+  { href: '/products?q=Lighting', label: 'Lighting' },
+  { href: '/products?q=Interior', label: 'Interior parts' },
   { href: '/cart', label: 'Cart' },
   { href: '/checkout', label: 'Checkout' },
 ] as const;
 
 const helpLinks = [
   { href: '/shipping', label: 'Shipping & returns' },
-  { href: '/terms', label: 'Terms & conditions' },
-  { href: '/privacy', label: 'Privacy policy' },
+  { href: '/legal', label: 'Legal & policies' },
 ] as const;
 
 function menuItemClass(focus: boolean) {

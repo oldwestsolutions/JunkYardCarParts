@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { MapPinIcon } from '@heroicons/react/24/outline';
 
 const Footer = () => {
   return (
@@ -13,13 +14,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/catalog" className="text-gray-400 hover:text-white">
-                  Catalog
+                <Link href="/products" className="text-gray-400 hover:text-white">
+                  Products
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white">
-                  About Us
+                <Link href="/solutions" className="text-gray-400 hover:text-white">
+                  Solutions
                 </Link>
               </li>
               <li>
@@ -34,16 +35,6 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/terms" className="text-gray-400 hover:text-white">
-                  Terms &amp; Conditions
-                </Link>
-              </li>
-              <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white">
-                  Privacy Policy
-                </Link>
-              </li>
-              <li>
                 <Link href="/legal" className="text-gray-400 hover:text-white">
                   Legal
                 </Link>
@@ -53,7 +44,10 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <p className="text-sm text-gray-400 sm:text-base">Louisiana, USA</p>
+            <p className="flex items-start gap-2 text-sm text-gray-400 sm:text-base">
+              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-gray-300" aria-hidden />
+              <span>Louisiana, USA</span>
+            </p>
           </div>
         </div>
 
