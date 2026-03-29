@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import {
   Menu,
@@ -37,8 +36,6 @@ function menuItemClass(focus: boolean) {
 }
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-
   return (
     <nav className="sticky top-0 z-50 bg-[var(--primary-color)] border-b-2 border-black pt-[env(safe-area-inset-top)]">
       <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
@@ -57,7 +54,7 @@ const Navbar = () => {
               <ShoppingCartIcon className="h-6 w-6" />
             </Link>
 
-            <Menu as="div" className="relative hidden md:block">
+            <Menu as="div" className="relative">
               <MenuButton className="retro-button flex items-center gap-1.5 px-3 py-2 text-sm font-bold uppercase tracking-wide">
                 <UserCircleIcon className="h-6 w-6 shrink-0" aria-hidden />
                 <span className="hidden sm:inline">Account</span>
@@ -106,67 +103,9 @@ const Navbar = () => {
                 </MenuItem>
               </MenuItems>
             </Menu>
-
-            <button
-              type="button"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="retro-button min-w-[4.5rem] px-2 text-xs md:hidden sm:text-sm"
-              aria-expanded={isMenuOpen}
-              aria-label={isMenuOpen ? 'Close menu' : 'Open menu'}
-            >
-              {isMenuOpen ? 'CLOSE' : 'MENU'}
-            </button>
           </div>
         </div>
       </div>
-
-      {isMenuOpen && (
-        <div className="max-h-[calc(100dvh-4rem)] overflow-y-auto overscroll-contain md:hidden border-t-2 border-black bg-[var(--primary-color)]">
-          <div className="space-y-2 px-2 py-3 pb-[max(0.75rem,env(safe-area-inset-bottom))] sm:px-3">
-            <Link
-              href="/cart"
-              className="block min-h-12 w-full py-3 text-center retro-button sm:min-h-11 sm:py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              <div className="flex items-center justify-center space-x-2">
-                <ShoppingCartIcon className="h-5 w-5" />
-                <span>CART</span>
-              </div>
-            </Link>
-            <p className="px-2 text-xs font-bold uppercase text-black/70">Shopping</p>
-            {accountLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block min-h-12 w-full py-3 text-center text-sm retro-button sm:min-h-11 sm:py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <p className="px-2 pt-2 text-xs font-bold uppercase text-black/70">
-              Help &amp; legal
-            </p>
-            {helpLinks.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="block min-h-12 w-full py-3 text-center text-sm retro-button sm:min-h-11 sm:py-2"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.label}
-              </Link>
-            ))}
-            <a
-              href="mailto:support@junkyardcarparts.com"
-              className="block min-h-12 w-full py-3 text-center text-sm retro-button sm:min-h-11 sm:py-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Email support
-            </a>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

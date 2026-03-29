@@ -7,12 +7,6 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Junkyard Car Parts</h3>
-            <h4 className="text-sm font-semibold text-white mb-2">Our mission</h4>
-            <p className="text-sm text-gray-400 sm:text-base">
-              We run a transparent, crypto-enabled marketplace that connects buyers to
-              verified parts worldwide. Trust and regulatory compliance guide how we
-              source inventory, settle transactions, and support customers end to end.
-            </p>
           </div>
 
           <div>
@@ -49,7 +43,7 @@ const Footer = () => {
                   Privacy Policy
                 </Link>
               </li>
-              <li className="pt-2 border-t border-gray-700 mt-2">
+              <li>
                 <Link href="/legal" className="text-gray-400 hover:text-white">
                   Legal
                 </Link>
@@ -59,13 +53,7 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
-            <ul className="space-y-2 text-sm text-gray-400 sm:text-base">
-              <li className="break-all">
-                Email: support@junkyardcarparts.com
-              </li>
-              <li>Phone: (555) 123-4567</li>
-              <li>Address: 123 Auto Parts Lane, Detroit, MI 48201</li>
-            </ul>
+            <p className="text-sm text-gray-400 sm:text-base">Louisiana, USA</p>
           </div>
         </div>
 
