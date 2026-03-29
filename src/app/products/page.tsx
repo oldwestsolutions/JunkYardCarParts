@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { Suspense, useEffect, useState, type FormEvent } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 // Mock product data - in a real app, this would come from your database
 const products = [
@@ -90,12 +91,32 @@ const products = [
 
 const categories = ['All', 'Engine', 'Exterior', 'Interior', 'Lighting', 'Suspension', 'Exhaust'];
 
-export default function ProductsPage() {
+function matchesQuery(
+  product: (typeof products)[0],
+  q: string
+): boolean {
+  if (!q) return true;
+  const hay = `${product.name} ${product.category} ${product.condition} ${product.verification} ${product.sourceLocation}`.toLowerCase();
+  return hay.includes(q.toLowerCase());
+}
+
+function ProductsContent() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const qParam = searchParams.get('q')?.trim() ?? '';
+
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [sortBy, setSortBy] = useState('featured');
+  const [searchInput, setSearchInput] = useState(qParam);
+
+  useEffect(() => {
+    setSearchInput(qParam);
+  }, [qParam]);
 
   const filteredProducts = products.filter(
-    (product) => selectedCategory === 'All' || product.category === selectedCategory
+    (product) =>
+      matchesQuery(product, qParam) &&
+      (selectedCategory === 'All' || product.category === selectedCategory)
   );
 
   const sortedProducts = [...filteredProducts].sort((a, b) => {
@@ -110,6 +131,12 @@ export default function ProductsPage() {
         return 0;
     }
   });
+
+  function onSearchSubmit(e: FormEvent) {
+    e.preventDefault();
+    const q = searchInput.trim();
+    router.push(q ? `/products?q=${encodeURIComponent(q)}` : '/products');
+  }
 
   return (
     <div className="min-h-screen bg-gray-50 py-8">
@@ -134,6 +161,47 @@ export default function ProductsPage() {
           payments</span>, and you can add <span className="font-medium">bonded mechanic
           installation</span> for verified local pros.
         </p>
+
+        <form
+          onSubmit={onSearchSubmit}
+          className="flex flex-col sm:flex-row gap-2 mb-8 max-w-2xl"
+          role="search"
+        >
+          <label htmlFor="catalog-search" className="sr-only">
+            Search parts
+          </label>
+          <input
+            id="catalog-search"
+            type="search"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            placeholder="Search by part name, category, condition…"
+            className="flex-1 rounded-md border border-gray-300 px-4 py-2.5 text-gray-900 shadow-sm focus:border-red-500 focus:ring-2 focus:ring-red-500/20"
+            autoComplete="off"
+          />
+          <button
+            type="submit"
+            className="rounded-md bg-red-600 px-6 py-2.5 font-semibold text-white hover:bg-red-700 transition-colors"
+          >
+            Search
+          </button>
+        </form>
+        {qParam && (
+          <p className="text-sm text-gray-600 mb-4">
+            Showing results for &quot;{qParam}&quot; ·{' '}
+            <button
+              type="button"
+              onClick={() => {
+                setSearchInput('');
+                router.push('/products');
+              }}
+              className="text-red-600 hover:text-red-700 font-medium"
+            >
+              Clear search
+            </button>
+          </p>
+        )}
+
         <h2 className="text-lg font-semibold text-gray-900 mb-4">
           Live listings
         </h2>
@@ -144,6 +212,7 @@ export default function ProductsPage() {
             {categories.map((category) => (
               <button
                 key={category}
+                type="button"
                 onClick={() => setSelectedCategory(category)}
                 className={`px-4 py-2 rounded-full text-sm font-medium ${
                   selectedCategory === category
@@ -175,69 +244,101 @@ export default function ProductsPage() {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {sortedProducts.map((product) => (
-            <Link
-              key={product.id}
-              href={`/products/${product.id}`}
-              className="block"
+        {sortedProducts.length === 0 ? (
+          <div className="rounded-lg border border-gray-200 bg-white p-12 text-center text-gray-600">
+            <p className="text-lg font-medium text-gray-900 mb-2">No parts match your search</p>
+            <p className="mb-4">Try different keywords or browse all categories.</p>
+            <button
+              type="button"
+              onClick={() => {
+                setSearchInput('');
+                setSelectedCategory('All');
+                router.push('/products');
+              }}
+              className="text-red-600 hover:text-red-700 font-semibold"
             >
-              <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative h-48">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
-                  />
-                </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                    {product.name}
-                  </h3>
-                  <p className="text-xs text-gray-500 mb-1">
-                    <span className="font-semibold text-gray-600">Source: </span>
-                    {product.sourceLocation}
-                  </p>
-                  {product.copartLotId && (
-                    <p className="text-xs text-gray-500 mb-1">
-                      <span className="font-semibold text-gray-600">Copart lot: </span>
-                      {product.copartLotId}
-                    </p>
-                  )}
-                  <p className="text-xs text-gray-500 mb-1">
-                    <span className="font-semibold text-gray-600">Condition: </span>
-                    {product.condition}
-                  </p>
-                  <p className="text-xs text-gray-500 mb-2">
-                    <span className="font-semibold text-gray-600">Verification: </span>
-                    {product.verification}
-                  </p>
-                  <p className="text-xs text-gray-700 mb-2">
-                    Purchase this part securely using Bitcoin.
-                  </p>
-                  <p className="text-xs text-gray-700 mb-2">
-                    Arrange professional installation with verified mechanics near you.
-                  </p>
-                  <div className="flex items-center justify-between">
-                    <span className="text-xl font-bold text-red-600">
-                      ${product.price.toFixed(2)}
-                    </span>
-                    <div className="flex items-center">
-                      <span className="text-yellow-400 mr-1">★</span>
-                      <span className="text-gray-600">{product.rating}</span>
-                    </div>
+              Reset filters
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {sortedProducts.map((product) => (
+              <Link
+                key={product.id}
+                href={`/products/${product.id}`}
+                className="block"
+              >
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                  <div className="relative h-48">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
+                    />
                   </div>
-                  <button className="mt-4 w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors">
-                    Add to Cart
-                  </button>
+                  <div className="p-4">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+                      {product.name}
+                    </h3>
+                    <p className="text-xs text-gray-500 mb-1">
+                      <span className="font-semibold text-gray-600">Source: </span>
+                      {product.sourceLocation}
+                    </p>
+                    {product.copartLotId && (
+                      <p className="text-xs text-gray-500 mb-1">
+                        <span className="font-semibold text-gray-600">Copart lot: </span>
+                        {product.copartLotId}
+                      </p>
+                    )}
+                    <p className="text-xs text-gray-500 mb-1">
+                      <span className="font-semibold text-gray-600">Condition: </span>
+                      {product.condition}
+                    </p>
+                    <p className="text-xs text-gray-500 mb-2">
+                      <span className="font-semibold text-gray-600">Verification: </span>
+                      {product.verification}
+                    </p>
+                    <p className="text-xs text-gray-700 mb-2">
+                      Purchase this part securely using Bitcoin.
+                    </p>
+                    <p className="text-xs text-gray-700 mb-2">
+                      Arrange professional installation with verified mechanics near you.
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xl font-bold text-red-600">
+                        ${product.price.toFixed(2)}
+                      </span>
+                      <div className="flex items-center">
+                        <span className="text-yellow-400 mr-1">★</span>
+                        <span className="text-gray-600">{product.rating}</span>
+                      </div>
+                    </div>
+                    <span className="mt-4 block w-full bg-red-600 text-white py-2 rounded-md hover:bg-red-700 transition-colors text-center">
+                      Add to Cart
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </Link>
-          ))}
-        </div>
+              </Link>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
-} 
+}
+
+export default function ProductsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen bg-gray-50 py-8">
+          <div className="max-w-7xl mx-auto px-4 text-gray-600">Loading catalog…</div>
+        </div>
+      }
+    >
+      <ProductsContent />
+    </Suspense>
+  );
+}

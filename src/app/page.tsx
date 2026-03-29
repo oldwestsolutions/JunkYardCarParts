@@ -2,11 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
 export default function Home() {
+  const router = useRouter();
+  const [heroSearch, setHeroSearch] = useState("");
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  function onHeroSearch(e: FormEvent) {
+    e.preventDefault();
+    const q = heroSearch.trim();
+    router.push(q ? `/products?q=${encodeURIComponent(q)}` : "/products");
+  }
 
   const featuredParts = [
     {
@@ -84,12 +93,39 @@ export default function Home() {
               Pay with Bitcoin and book bonded, verified local mechanics when you need
               safe, professional installation.
             </p>
-            <Link
-              href="/products"
-              className="inline-block bg-[var(--accent-color)] hover:bg-[var(--secondary-color)] text-black px-8 py-4 rounded-md text-xl font-bold text-center transition-colors duration-300 border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
+            <form
+              onSubmit={onHeroSearch}
+              className="flex flex-col sm:flex-row gap-3 max-w-xl"
+              role="search"
+              aria-label="Search parts catalog"
             >
-              BROWSE
-            </Link>
+              <label htmlFor="hero-search" className="sr-only">
+                Search parts
+              </label>
+              <input
+                id="hero-search"
+                type="search"
+                value={heroSearch}
+                onChange={(e) => setHeroSearch(e.target.value)}
+                placeholder="Search parts, brands, categories…"
+                className="flex-1 rounded-md border-2 border-black px-4 py-3 text-lg text-gray-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-black/30"
+                autoComplete="off"
+              />
+              <button
+                type="submit"
+                className="bg-[var(--accent-color)] hover:bg-[var(--secondary-color)] text-black px-8 py-3 rounded-md text-lg font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors"
+              >
+                Search
+              </button>
+            </form>
+            <p className="mt-4 text-sm text-black/80 [text-shadow:1px_1px_0px_#FFFFFF]">
+              <Link
+                href="/products"
+                className="underline font-semibold hover:text-black"
+              >
+                View all parts
+              </Link>
+            </p>
           </div>
           <div className="w-full lg:w-[500px] lg:ml-auto shrink-0">
             <div className="bg-white/90 p-6 rounded-lg shadow-lg group">
@@ -169,34 +205,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Bitcoin checkout spotlight */}
+      {/* Auto Equity Group — vehicle shopping */}
       <section className="py-12 bg-gradient-to-r from-black/90 to-black/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="relative w-full md:w-[400px] h-[225px] rounded-lg overflow-hidden flex-shrink-0">
+            <div className="relative w-full md:w-[400px] h-[240px] rounded-lg overflow-hidden flex-shrink-0 border-2 border-white/10">
               <Image
-                src="https://images.unsplash.com/photo-1621761191310-ee45f5d0a1cf?auto=format&fit=crop&w=800&q=80"
-                alt="Bitcoin payment option for automotive parts orders"
+                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80"
+                alt="New and pre-owned vehicles at an Auto Equity Group affiliated dealership lot"
                 fill
                 className="object-cover"
                 sizes="(max-width:768px)100vw,400px"
+                priority={false}
               />
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Pay with Bitcoin—we will source the part you need
+                Shop your next vehicle with Auto Equity Group
               </h3>
               <p className="text-white/80 text-base mb-4">
-                Checkout with Bitcoin when your order qualifies for our crypto rails. From
-                common maintenance items to hard-to-find assemblies, tell us what you are
-                after and we will chase it through our verified supplier network and
-                Copart lanes where permitted—so you are not stuck hunting alone.
+                Junkyard Car Parts sits alongside Auto Equity Group&apos;s retail and
+                remarketing footprint—so you are not only sourcing parts here, you can
+                shop cars, trucks, and SUVs through the same ecosystem of trusted
+                inventory, transparent pricing, and finance-friendly workflows AEG is
+                known for.
+              </p>
+              <p className="text-white/80 text-base mb-4">
+                Whether you need a daily driver, a work truck, or something special to
+                match the build in your garage, start with AEG-backed selection and let
+                our teams help you land the right vehicle before you bolt on upgrades from
+                this catalog.
               </p>
               <Link
                 href="/products"
                 className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
               >
-                Shop parts →
+                Find parts for your vehicle →
               </Link>
             </div>
           </div>
@@ -219,7 +263,7 @@ export default function Home() {
                 title: "ENGINE PARTS",
                 description: "Power up your ride!",
                 image:
-                  "https://images.unsplash.com/photo-1486262715619-67b85e81a29d?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "1000 XP",
                 isNew: true,
               },
@@ -227,7 +271,7 @@ export default function Home() {
                 title: "EXTERIOR PARTS",
                 description: "Make it look mean!",
                 image:
-                  "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "800 XP",
                 isNew: true,
               },
@@ -235,7 +279,7 @@ export default function Home() {
                 title: "INTERIOR PARTS",
                 description: "Level up your interior!",
                 image:
-                  "https://images.unsplash.com/photo-1503376780353-7e66929fa8a9?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1507136564506-3b446194ccb3?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "600 XP",
                 isNew: true,
               },
@@ -243,7 +287,7 @@ export default function Home() {
                 title: "SUSPENSION",
                 description: "Ride like a pro!",
                 image:
-                  "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "900 XP",
                 isNew: true,
               },
@@ -251,7 +295,7 @@ export default function Home() {
                 title: "BRAKES",
                 description: "Stop on a dime!",
                 image:
-                  "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "750 XP",
                 isNew: true,
               },
@@ -259,7 +303,7 @@ export default function Home() {
                 title: "LIGHTING",
                 description: "Light up the night!",
                 image:
-                  "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1494905998402-395d57936e27?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "500 XP",
                 isNew: true,
               },
@@ -267,7 +311,7 @@ export default function Home() {
                 title: "EXHAUST",
                 description: "Sound like a beast!",
                 image:
-                  "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "850 XP",
                 isNew: true,
               },
@@ -275,7 +319,7 @@ export default function Home() {
                 title: "WHEELS & TIRES",
                 description: "Roll in style!",
                 image:
-                  "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "700 XP",
                 isNew: true,
               },
@@ -283,7 +327,7 @@ export default function Home() {
                 title: "ELECTRONICS",
                 description: "Tech up your ride!",
                 image:
-                  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "650 XP",
                 isNew: true,
               },
@@ -295,7 +339,7 @@ export default function Home() {
                 <div className="relative h-48">
                   <Image
                     src={category.image}
-                    alt={`${category.title} — ${category.description}`}
+                    alt={category.description}
                     fill
                     className="object-cover"
                     sizes="(max-width:768px)100vw,33vw"
