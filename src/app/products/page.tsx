@@ -13,6 +13,11 @@ const products = [
     category: 'Exhaust',
     image: '/products/exhaust.jpg',
     rating: 4.5,
+    sourceLocation: 'Dalton, GA, USA · Verified supplier',
+    copartLotId: '8843215-US',
+    condition: 'New – aftermarket (verified SKU)',
+    verification:
+      'Supplier credential check + packaging photos on file before listing.',
   },
   {
     id: 2,
@@ -21,6 +26,10 @@ const products = [
     category: 'Exterior',
     image: '/products/spoiler.jpg',
     rating: 4.2,
+    sourceLocation: 'Ontario, CA, USA · Verified supplier',
+    copartLotId: null,
+    condition: 'New – open box; inspected for weave defects',
+    verification: 'QC pass documented; serial sticker cross-checked.',
   },
   {
     id: 3,
@@ -29,6 +38,10 @@ const products = [
     category: 'Lighting',
     image: '/products/headlights.jpg',
     rating: 4.8,
+    sourceLocation: 'Rotterdam, NL · EU fulfillment partner',
+    copartLotId: null,
+    condition: 'New – sealed retail',
+    verification: 'EU partner onboarding + invoice match on dispatch.',
   },
   {
     id: 4,
@@ -37,6 +50,11 @@ const products = [
     category: 'Engine',
     image: '/products/air-filter.jpg',
     rating: 4.3,
+    sourceLocation: 'Houston, TX, USA · Copart lane (where permitted)',
+    copartLotId: '7721044-TX',
+    condition: 'Used – tested good; mileage unknown',
+    verification:
+      'Copart run & bid documentation; bench airflow test prior to ship.',
   },
   {
     id: 5,
@@ -45,6 +63,10 @@ const products = [
     category: 'Interior',
     image: '/products/steering-wheel.jpg',
     rating: 4.6,
+    sourceLocation: 'Nagoya, JP · Verified supplier',
+    copartLotId: null,
+    condition: 'New – custom build to order',
+    verification: 'Factory photos + buyer sign-off before international ship.',
   },
   {
     id: 6,
@@ -53,6 +75,10 @@ const products = [
     category: 'Suspension',
     image: '/products/springs.jpg',
     rating: 4.4,
+    sourceLocation: 'Chicago, IL, USA · Verified supplier',
+    copartLotId: '6619022-IL',
+    condition: 'New – take-off; stored indoors',
+    verification: 'Spring rate tag photo + alignment recommendation supplied.',
   },
 ];
 
@@ -82,7 +108,29 @@ export default function ProductsPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">All Products</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-3">
+          Global inventory & Copart auction parts
+        </h1>
+        <p className="text-gray-700 mb-3 max-w-3xl">
+          Explore our global auto parts marketplace with regulated Copart
+          participation, supplier verification, and lot-level transparency on
+          eligible listings. Every card shows{' '}
+          <span className="font-medium">source location</span>,{' '}
+          <span className="font-medium">part condition</span>, and{' '}
+          <span className="font-medium">verification notes</span>—plus a Copart lot
+          ID when the unit is Copart-sourced.
+        </p>
+        <p className="text-sm text-gray-600 mb-6 max-w-3xl">
+          This catalog sits inside a broader <span className="font-medium">global auto
+          parts marketplace</span> that also lists <span className="font-medium">
+          Copart auction parts</span> when regulations and seller permissions align.
+          Eligible checkouts support <span className="font-medium">crypto car parts
+          payments</span>, and you can add <span className="font-medium">bonded mechanic
+          installation</span> for verified local pros.
+        </p>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">
+          Live listings
+        </h2>
 
         {/* Filters */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
@@ -141,6 +189,30 @@ export default function ProductsPage() {
                   <h3 className="text-lg font-semibold text-gray-900 mb-2">
                     {product.name}
                   </h3>
+                  <p className="text-xs text-gray-500 mb-1">
+                    <span className="font-semibold text-gray-600">Source: </span>
+                    {product.sourceLocation}
+                  </p>
+                  {product.copartLotId && (
+                    <p className="text-xs text-gray-500 mb-1">
+                      <span className="font-semibold text-gray-600">Copart lot: </span>
+                      {product.copartLotId}
+                    </p>
+                  )}
+                  <p className="text-xs text-gray-500 mb-1">
+                    <span className="font-semibold text-gray-600">Condition: </span>
+                    {product.condition}
+                  </p>
+                  <p className="text-xs text-gray-500 mb-2">
+                    <span className="font-semibold text-gray-600">Verification: </span>
+                    {product.verification}
+                  </p>
+                  <p className="text-xs text-gray-700 mb-2">
+                    Purchase this part securely using Bitcoin.
+                  </p>
+                  <p className="text-xs text-gray-700 mb-2">
+                    Arrange professional installation with verified mechanics near you.
+                  </p>
                   <div className="flex items-center justify-between">
                     <span className="text-xl font-bold text-red-600">
                       ${product.price.toFixed(2)}

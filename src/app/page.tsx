@@ -75,8 +75,19 @@ export default function Home() {
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black [text-shadow:3px_3px_0px_#FFFFFF]">
               JUNKYARD CAR PARTS
             </h1>
-            <p className="text-2xl mb-8 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
-              Your Ultimate Source for Custom & Aftermarket Parts!
+            <p className="text-2xl mb-4 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+              The transparent, crypto-enabled marketplace for drivers who want real
+              choice—competitive pricing, verified quality, and trusted sourcing.
+            </p>
+            <p className="text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+              Parts sourced from trusted suppliers across the U.S. and worldwide.
+            </p>
+            <p className="text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+              We leverage Copart auctions where permitted to deliver the best deals.
+            </p>
+            <p className="text-lg mb-8 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+              Pay with Bitcoin and book bonded, verified local mechanics when you need
+              safe, professional installation.
             </p>
             <Link
               href="/products"
@@ -87,9 +98,13 @@ export default function Home() {
           </div>
           <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden md:block w-[500px]">
             <div className="bg-white/90 p-6 rounded-lg shadow-lg group">
-              <h3 className="text-2xl font-bold mb-6 text-center text-black">
+              <h3 className="text-2xl font-bold mb-2 text-center text-black">
                 FEATURED PARTS
               </h3>
+              <p className="text-sm text-center text-gray-800 mb-6 px-2">
+                Spotlight listings from our global auto parts marketplace—verified
+                suppliers and regulated Copart participation where available.
+              </p>
               <div className="relative">
                 <div className="overflow-hidden rounded-lg">
                   <div 
@@ -168,10 +183,12 @@ export default function Home() {
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Performance Exhaust Installation Guide
+                Bonded mechanic installation, done right
               </h3>
               <p className="text-white/80 text-base mb-4">
-                Watch our expert install a complete performance exhaust system in under 30 minutes
+                See how bonded mechanic installation keeps complex jobs precise—from
+                fitment checks to final torque—so Copart-sourced parts and global
+                marketplace inventory go on safely.
               </p>
               <button className="text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors">
                 Watch Now →
@@ -185,67 +202,73 @@ export default function Home() {
       <section className="py-16 bg-[var(--primary-color)] border-y-2 border-black">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="retro-title">SHOP BY CATEGORY</h2>
+          <p className="text-center text-black/80 max-w-3xl mx-auto mb-10 text-base">
+            Browse a global auto parts marketplace built on regulated sourcing:
+            Copart auction parts where permitted, clear condition notes, and suppliers
+            screened for compliance. Crypto car parts payments and bonded mechanic
+            installation options are available at checkout on eligible orders.
+          </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
                 title: 'ENGINE PARTS',
-                description: 'Power Up Your Ride!',
+                description: 'Verified powertrain components from global suppliers.',
                 image: '/images/categories/engine.jpg',
                 xp: '1000 XP',
                 isNew: true,
               },
               {
                 title: 'EXTERIOR PARTS',
-                description: 'Make It Look Mean!',
+                description: 'Body, aero, and trim matched to stated condition codes.',
                 image: '/images/categories/exterior.jpg',
                 xp: '800 XP',
                 isNew: true,
               },
               {
                 title: 'INTERIOR PARTS',
-                description: 'Level Up Your Interior!',
+                description: 'Cabin upgrades with transparent sourcing details.',
                 image: '/images/categories/interior.jpg',
                 xp: '600 XP',
                 isNew: true,
               },
               {
                 title: 'SUSPENSION',
-                description: 'Ride Like a Pro!',
+                description: 'Street and track setups—inspect before install.',
                 image: '/images/categories/suspension.jpg',
                 xp: '900 XP',
                 isNew: true,
               },
               {
                 title: 'BRAKES',
-                description: 'Stop on a Dime!',
+                description: 'Stopping power sourced through vetted channels.',
                 image: '/images/categories/brakes.jpg',
                 xp: '750 XP',
                 isNew: true,
               },
               {
                 title: 'LIGHTING',
-                description: 'Light Up the Night!',
+                description: 'LED and OEM-style lighting with verification notes.',
                 image: '/images/categories/lighting.jpg',
                 xp: '500 XP',
                 isNew: true,
               },
               {
                 title: 'EXHAUST',
-                description: 'Sound Like a Beast!',
+                description: 'Performance exhaust—check listings for Copart lots.',
                 image: '/images/categories/exhaust.jpg',
                 xp: '850 XP',
                 isNew: true,
               },
               {
                 title: 'WHEELS & TIRES',
-                description: 'Roll in Style!',
+                description: 'Wheels, tires, and packages from trusted sellers.',
                 image: '/images/categories/wheels.jpg',
                 xp: '700 XP',
                 isNew: true,
               },
               {
                 title: 'ELECTRONICS',
-                description: 'Tech Up Your Ride!',
+                description: 'Modules, audio, and tech—serial checks when supplied.',
                 image: '/images/categories/electronics.jpg',
                 xp: '650 XP',
                 isNew: true,
@@ -301,10 +324,12 @@ export default function Home() {
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Turbo Kit Installation Walkthrough
+                Dealer-ready sourcing & crypto car parts payments
               </h3>
               <p className="text-white/80 text-base mb-4">
-                Step-by-step guide to installing our premium turbo kit
+                Learn how dealers tap verified, regulated inventory, priority access
+                when allowed, and crypto-enabled transactions that pair with
+                competitive Copart auction sourcing.
               </p>
               <button className="text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors">
                 Watch Now →

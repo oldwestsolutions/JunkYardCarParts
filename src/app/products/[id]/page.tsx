@@ -9,13 +9,19 @@ const product = {
   name: 'Performance Exhaust System',
   price: 299.99,
   category: 'Exhaust',
-  description: 'High-performance exhaust system designed to improve engine efficiency and sound. Made from premium stainless steel with a polished finish.',
+  description:
+    'High-performance exhaust system engineered for better flow, sound control, and durability. Listing data includes sourcing transparency so you know where it shipped from, how it was verified, and whether it moved through a Copart pipeline.',
+  sourceLocation: 'Dalton, GA, USA · Verified supplier network',
+  copartLotId: '8843215-US',
+  condition: 'New – aftermarket (verified SKU)',
+  verification:
+    'Two-step supplier onboarding, invoice versus packing slip match, and destination photos prior to dispatch. Copart auction documentation archived for this lot where participation is permitted.',
   features: [
     'Stainless steel construction',
     'Improved exhaust flow',
-    'Deep, aggressive sound',
-    'Easy installation',
-    'Includes all necessary hardware',
+    'Tuned acoustic profile',
+    'Hardware kit included',
+    'Install supports bonded mechanic booking',
   ],
   images: [
     '/products/exhaust-1.jpg',
@@ -86,6 +92,56 @@ export default function ProductPage() {
             <p className="text-gray-600 mb-6">{product.description}</p>
 
             <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-3">
+                Sourcing, Copart data & verification
+              </h2>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold text-gray-800">Source location: </span>
+                {product.sourceLocation}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold text-gray-800">Copart lot ID: </span>
+                {product.copartLotId} (displayed on Copart-sourced listings)
+              </p>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold text-gray-800">Part condition: </span>
+                {product.condition}
+              </p>
+              <p className="text-gray-600 mb-2">
+                <span className="font-semibold text-gray-800">Verification: </span>
+                {product.verification}
+              </p>
+              <p className="text-sm text-gray-600">
+                Shoppers exploring <span className="font-medium">global auto parts
+                Bitcoin</span> checkout paths and <span className="font-medium">
+                Copart-sourced parts</span> disclosures will see the same data points
+                mirrored on invoices for audit-friendly record keeping.
+              </p>
+            </div>
+
+            <div className="mb-6">
+              <h2 className="text-xl font-semibold text-gray-900 mb-2">
+                Crypto checkout & installation
+              </h2>
+              <p className="text-gray-700 mb-2">
+                Purchase this part securely using Bitcoin.
+              </p>
+              <p className="text-gray-700 mb-2">
+                Arrange professional installation with verified mechanics near you.
+              </p>
+              <p className="text-sm text-gray-600 mb-2">
+                Our bonded network documents complex assemblies so installs stay
+                compliant from lift to final torque.
+              </p>
+              <p className="text-sm text-gray-600">
+                Together, those services reinforce this{' '}
+                <span className="font-medium">crypto car parts marketplace</span>{' '}
+                experience without sacrificing the bonded mechanic installation standards
+                professional installers expect.
+              </p>
+            </div>
+
+            <div className="mb-6">
               <h3 className="text-lg font-semibold mb-2">Features:</h3>
               <ul className="list-disc list-inside text-gray-600">
                 {product.features.map((feature, index) => (
@@ -123,7 +179,10 @@ export default function ProductPage() {
             <div className="border-t pt-6">
               <h3 className="text-lg font-semibold mb-2">Shipping & Returns</h3>
               <p className="text-gray-600">
-                Free shipping on orders over $100. Returns accepted within 30 days of purchase.
+                Free shipping on orders over $100 for domestic routes. International lanes
+                may incur duties depending on supplier country. Returns follow a
+                documented chain-of-custody policy—especially for Copart-linked inventory—so
+                we can uphold regulated sourcing requirements.
               </p>
             </div>
           </div>

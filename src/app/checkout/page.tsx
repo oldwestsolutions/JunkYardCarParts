@@ -172,6 +172,12 @@ export default function CheckoutPage() {
                 <h2 className="text-xl font-semibold text-gray-900 mb-4">
                   Payment Information
                 </h2>
+                <p className="text-sm text-gray-600 mb-4">
+                  Pay with major cards here, or—when your order qualifies—complete{' '}
+                  <span className="font-medium">global auto parts Bitcoin</span>{' '}
+                  checkout in a separate secure flow that mirrors our regulated sourcing
+                  and compliance controls.
+                </p>
                 <div className="space-y-4">
                   <div>
                     <label htmlFor="cardNumber" className="block text-sm font-medium text-gray-700">

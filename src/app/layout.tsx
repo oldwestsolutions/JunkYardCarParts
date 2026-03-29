@@ -7,8 +7,19 @@ import Footer from "@/components/Footer";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Junkyard Car Parts - Custom & Aftermarket Auto Parts",
-  description: "Find high-quality custom car parts and aftermarket components for your vehicle at Junkyard Car Parts.",
+  title:
+    "Junkyard Car Parts | Global Auto Parts Marketplace & Copart-Sourced Parts",
+  description:
+    "Shop verified inventory from a global auto parts marketplace. Copart auction parts where permitted, crypto car parts payments with Bitcoin, and bonded mechanic installation from verified pros.",
+  keywords: [
+    "global auto parts Bitcoin",
+    "Copart-sourced parts",
+    "bonded mechanic installation",
+    "crypto car parts marketplace",
+    "global auto parts marketplace",
+    "Copart auction parts",
+    "crypto car parts payments",
+  ],
 };
 
 export default function RootLayout({

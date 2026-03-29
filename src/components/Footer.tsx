@@ -7,8 +7,19 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-lg font-semibold mb-4">Junkyard Car Parts</h3>
+            <h4 className="text-sm font-semibold text-white mb-2">Our mission</h4>
+            <p className="text-gray-400 mb-4">
+              We run a transparent, crypto-enabled marketplace that connects buyers to
+              verified parts worldwide. Trust and regulatory compliance guide how we
+              source inventory, settle transactions, and support customers end to end.
+            </p>
+            <h4 className="text-sm font-semibold text-white mb-2">For dealers</h4>
             <p className="text-gray-400">
-              Your one-stop shop for custom car parts and aftermarket components.
+              Dealers gain access to verified, regulated inventory and competitive
+              sourcing opportunities—including Copart-linked pipelines where allowed.
+              Crypto-enabled transactions and priority access (when permitted by program
+              rules) help you move stock faster while reinforcing compliance across the
+              network.
             </p>
           </div>
           

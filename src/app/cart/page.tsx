@@ -43,7 +43,12 @@ export default function CartPage() {
   return (
     <div className="min-h-screen bg-gray-50 py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-3xl font-bold text-gray-900 mb-8">Shopping Cart</h1>
+        <h1 className="text-3xl font-bold text-gray-900 mb-2">Shopping Cart</h1>
+        <p className="text-sm text-gray-600 mb-8 max-w-2xl">
+          Review Copart-sourced and marketplace items together. At checkout you can
+          choose Bitcoin on supported orders and schedule bonded mechanic installation
+          with verified technicians in your area.
+        </p>
 
         {items.length === 0 ? (
           <div className="text-center py-12">
