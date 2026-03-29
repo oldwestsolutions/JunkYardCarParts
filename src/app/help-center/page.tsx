@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   ChatBubbleLeftRightIcon,
   CubeIcon,
@@ -58,7 +58,7 @@ export default function HelpCenterPage() {
               const Icon = item.icon;
               return (
                 <li key={item.href}>
-                  <Link
+                  <MotionLink
                     href={item.href}
                     className="flex gap-4 rounded-xl border-2 border-black bg-neutral-50 p-4 transition-colors hover:bg-neutral-100"
                   >
@@ -69,7 +69,7 @@ export default function HelpCenterPage() {
                       <p className="font-bold text-black">{item.title}</p>
                       <p className="mt-1 text-sm text-black/70">{item.body}</p>
                     </div>
-                  </Link>
+                  </MotionLink>
                 </li>
               );
             })}
@@ -95,9 +95,9 @@ export default function HelpCenterPage() {
         </section>
 
         <p className="mt-10 text-center text-sm text-black/60">
-          <Link href="/" className="font-semibold text-black underline underline-offset-4">
+          <MotionLink href="/" className="font-semibold text-black underline underline-offset-4">
             ← Back to home
-          </Link>
+          </MotionLink>
         </p>
       </div>
     </div>

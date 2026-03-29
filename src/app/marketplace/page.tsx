@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   BoltIcon,
   ShieldCheckIcon,
@@ -97,12 +97,12 @@ export default function MarketplacePage() {
               Browse the live inventory to filter by category, keyword, and fitment—then
               checkout with the same protections as the rest of Junkyard Car Parts.
             </p>
-            <Link
+            <MotionLink
               href="/products"
               className="mt-8 inline-flex rounded-full border-2 border-neutral-900 bg-neutral-900 px-8 py-3 text-sm font-bold text-white hover:bg-neutral-800"
             >
               Browse mission-critical parts
-            </Link>
+            </MotionLink>
           </div>
         </div>
       </section>
@@ -137,17 +137,17 @@ export default function MarketplacePage() {
       <section className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6">
         <p className="mb-6 text-neutral-700">
           Looking for one-of-a-kind custom work from independent makers? See{' '}
-          <Link href="/signature" className="font-semibold text-neutral-900 underline underline-offset-4">
+          <MotionLink href="/signature" className="font-semibold text-neutral-900 underline underline-offset-4">
             Signature
-          </Link>
+          </MotionLink>
           .
         </p>
-        <Link
+        <MotionLink
           href="/products"
           className="inline-flex rounded-full border-2 border-neutral-900 px-8 py-3 text-sm font-bold text-neutral-900 hover:bg-neutral-200"
         >
           Open product search
-        </Link>
+        </MotionLink>
       </section>
     </div>
   );

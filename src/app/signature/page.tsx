@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   PaintBrushIcon,
   SparklesIcon,
@@ -89,12 +89,12 @@ export default function SignaturePage() {
               eligible listings in the product catalog and filter for Signature where
               available.
             </p>
-            <Link
+            <MotionLink
               href="/products"
               className="mt-8 inline-flex rounded-full border-2 border-neutral-900 bg-neutral-900 px-8 py-3 text-sm font-bold text-white hover:bg-neutral-800"
             >
               Explore Signature listings
-            </Link>
+            </MotionLink>
           </div>
           <div className="relative aspect-[4/3] overflow-hidden rounded-2xl border border-neutral-200 bg-neutral-200">
             <Image
@@ -138,20 +138,20 @@ export default function SignaturePage() {
       <section className="mx-auto max-w-3xl px-4 py-14 text-center sm:px-6">
         <p className="mb-6 text-neutral-700">
           Need mission-critical used parts first? Head to{' '}
-          <Link
+          <MotionLink
             href="/marketplace"
             className="font-semibold text-neutral-900 underline underline-offset-4"
           >
             Marketplace
-          </Link>
+          </MotionLink>
           .
         </p>
-        <Link
+        <MotionLink
           href="/products"
           className="inline-flex rounded-full border-2 border-neutral-900 px-8 py-3 text-sm font-bold text-neutral-900 hover:bg-neutral-200"
         >
           Browse all products
-        </Link>
+        </MotionLink>
       </section>
     </div>
   );

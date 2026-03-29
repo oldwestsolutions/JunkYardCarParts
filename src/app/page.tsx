@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import Link from "next/link";
+import { MotionLink } from "@/components/MotionLink";
 import { useState, useEffect, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
@@ -114,12 +114,14 @@ export default function Home() {
               </button>
             </form>
             <p className="mt-4 text-sm text-black/80">
-              <Link
+              <MotionLink
                 href="/products"
                 className="underline font-semibold hover:text-black"
+                whileHover={{ opacity: 0.85 }}
+                whileTap={{ scale: 0.98 }}
               >
                 View all parts
-              </Link>
+              </MotionLink>
             </p>
           </div>
           <div className="w-full lg:w-[500px] lg:ml-auto shrink-0">
@@ -231,12 +233,14 @@ export default function Home() {
                 our teams help you land the right vehicle before you bolt on upgrades from
                 our inventory.
               </p>
-              <Link
-                href="/products"
+              <MotionLink
+                href="/shop-cars"
                 className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Find parts for your vehicle →
-              </Link>
+                Shop Cars
+              </MotionLink>
             </div>
           </div>
         </div>
@@ -262,15 +266,18 @@ export default function Home() {
                 category.imageVariant === "interior" ||
                 category.imageVariant === "brakes";
               return (
-                <Link
+                <MotionLink
                   key={category.slug}
                   href={`/categories/${category.slug}`}
                   className="retro-card group relative block overflow-hidden text-left transition-colors hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                  whileHover={{ y: -3 }}
+                  whileTap={{ scale: 0.99 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 28 }}
                 >
                   <div className="relative h-48 bg-gray-200">
                     <Image
                       src={imgSrc}
-                      alt={category.description}
+                      alt={category.title}
                       fill
                       className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       sizes="(max-width:768px)100vw,33vw"
@@ -278,12 +285,9 @@ export default function Home() {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="text-xl font-bold mb-2 text-black">
-                      {category.title}
-                    </h3>
-                    <p className="text-gray-600">{category.description}</p>
+                    <h3 className="text-xl font-bold text-black">{category.title}</h3>
                   </div>
-                </Link>
+                </MotionLink>
               );
             })}
           </div>
@@ -320,12 +324,14 @@ export default function Home() {
                 operational support, and a long-term commitment to the mechanics,
                 dealers, and enthusiasts who rely on this platform every day.
               </p>
-              <Link
-                href="/products"
+              <MotionLink
+                href="/learn-more"
                 className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
+                whileHover={{ x: 4 }}
+                whileTap={{ scale: 0.98 }}
               >
-                Explore inventory →
-              </Link>
+                Learn More
+              </MotionLink>
             </div>
           </div>
         </div>

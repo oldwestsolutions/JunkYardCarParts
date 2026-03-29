@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   AcademicCapIcon,
   BriefcaseIcon,
@@ -119,9 +119,9 @@ export default function CareersPage() {
           Group ecosystem.
         </p>
         <p className="mt-6">
-          <Link href="/" className="text-sm font-semibold text-neutral-900 underline underline-offset-4">
+          <MotionLink href="/" className="text-sm font-semibold text-neutral-900 underline underline-offset-4">
             ← Back to home
-          </Link>
+          </MotionLink>
         </p>
       </section>
     </div>

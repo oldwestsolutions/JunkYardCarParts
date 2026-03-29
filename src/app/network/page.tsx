@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   GlobeAltIcon,
   ServerStackIcon,
@@ -147,12 +147,12 @@ export default function NetworkPage() {
               lanes follow customs and carrier requirements; domestic US orders prioritize
               tracked ground and express where it makes sense for weight and value.
             </p>
-            <Link
+            <MotionLink
               href="/shipping"
               className="mt-6 inline-block font-semibold text-white underline underline-offset-4 hover:text-neutral-200"
             >
               Read shipping &amp; returns →
-            </Link>
+            </MotionLink>
           </div>
         </div>
       </section>
@@ -163,18 +163,18 @@ export default function NetworkPage() {
             Dive deeper into blockchain-enabled trust, or start browsing inventory.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-            <Link
+            <MotionLink
               href="/blockchain"
               className="inline-flex rounded-full border-2 border-neutral-900 bg-neutral-900 px-8 py-3 text-sm font-bold text-white hover:bg-neutral-800"
             >
               Blockchain
-            </Link>
-            <Link
+            </MotionLink>
+            <MotionLink
               href="/products"
               className="inline-flex rounded-full border-2 border-neutral-900 px-8 py-3 text-sm font-bold text-neutral-900 hover:bg-neutral-200"
             >
               Shop products
-            </Link>
+            </MotionLink>
           </div>
         </div>
       </section>

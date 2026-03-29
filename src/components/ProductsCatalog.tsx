@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useState, type FormEvent } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import { useRouter, useSearchParams } from 'next/navigation';
 
 const products = [
@@ -258,10 +258,13 @@ function ProductsContent({ basePath }: ProductsContentProps) {
         ) : (
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
             {sortedProducts.map((product) => (
-              <Link
+              <MotionLink
                 key={product.id}
                 href={`/products/${product.id}`}
                 className="block"
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.99 }}
+                transition={{ duration: 0.2 }}
               >
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
                   <div className="relative h-48">
@@ -315,7 +318,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
                     </span>
                   </div>
                 </div>
-              </Link>
+              </MotionLink>
             ))}
           </div>
         )}

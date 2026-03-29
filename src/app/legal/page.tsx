@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 
 export const metadata: Metadata = {
   title: 'Legal',
@@ -21,9 +21,9 @@ export default function LegalPage() {
     <div className="min-h-screen bg-white py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <p className="text-sm text-gray-500 mb-6">
-          <Link href="/" className="text-gray-800 underline-offset-4 hover:underline">
+          <MotionLink href="/" className="text-gray-800 underline-offset-4 hover:underline">
             Home
-          </Link>
+          </MotionLink>
           <span className="mx-2">/</span>
           Legal
         </p>
@@ -76,9 +76,9 @@ export default function LegalPage() {
 
         <ul className="mt-10 space-y-4">
           <li>
-            <Link href="/shipping" className="text-gray-900 font-medium underline-offset-4 hover:underline">
+            <MotionLink href="/shipping" className="text-gray-900 font-medium underline-offset-4 hover:underline">
               Shipping &amp; Returns
-            </Link>
+            </MotionLink>
             <p className="text-sm text-gray-600 mt-1">
               Delivery timelines, international shipping, and return eligibility.
             </p>

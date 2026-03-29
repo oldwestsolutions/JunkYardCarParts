@@ -17,6 +17,8 @@ const STATIC_PATHS = [
   '/services',
   '/help-center',
   '/careers',
+  '/learn-more',
+  '/shop-cars',
 ] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {

@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   CubeIcon,
   DocumentCheckIcon,
@@ -142,12 +142,12 @@ export default function BlockchainPage() {
               documents; this page is a plain-language overview of how the technology fits
               our marketplace.
             </p>
-            <Link
+            <MotionLink
               href="/legal"
               className="mt-6 inline-block font-semibold text-neutral-900 underline underline-offset-4 hover:text-neutral-600"
             >
               View legal &amp; policies →
-            </Link>
+            </MotionLink>
           </div>
           <div className="relative order-1 aspect-[4/3] overflow-hidden rounded-2xl border border-neutral-200 lg:order-2">
             <Image
@@ -167,18 +167,18 @@ export default function BlockchainPage() {
             See how all layers fit together—from infrastructure to your first checkout.
           </p>
           <div className="flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
-            <Link
+            <MotionLink
               href="/solutions"
               className="inline-flex rounded-full border-2 border-neutral-900 bg-neutral-900 px-8 py-3 text-sm font-bold text-white hover:bg-neutral-800"
             >
               Solutions overview
-            </Link>
-            <Link
+            </MotionLink>
+            <MotionLink
               href="/products"
               className="inline-flex rounded-full border-2 border-neutral-900 px-8 py-3 text-sm font-bold text-neutral-900 hover:bg-neutral-200"
             >
               Shop products
-            </Link>
+            </MotionLink>
           </div>
         </div>
       </section>

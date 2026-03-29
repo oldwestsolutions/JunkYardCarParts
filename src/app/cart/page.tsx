@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import { MOCK_CART_ITEMS } from '@/data/mock-cart';
 
 export default function CartPage() {
@@ -37,12 +37,12 @@ export default function CartPage() {
             <h2 className="text-2xl font-semibold text-gray-900 mb-4">
               Your cart is empty
             </h2>
-            <Link
+            <MotionLink
               href="/products"
               className="text-red-600 hover:text-red-700 font-medium"
             >
               Continue Shopping
-            </Link>
+            </MotionLink>
           </div>
         ) : (
           <div className="flex flex-col lg:flex-row gap-8">
@@ -126,18 +126,18 @@ export default function CartPage() {
                     </div>
                   </div>
                 </div>
-                <Link
+                <MotionLink
                   href="/checkout"
                   className="flex min-h-12 w-full items-center justify-center rounded-md bg-red-600 py-3 text-base font-semibold text-white hover:bg-red-700 transition-colors"
                 >
                   Proceed to Checkout
-                </Link>
-                <Link
+                </MotionLink>
+                <MotionLink
                   href="/products"
                   className="block text-center text-red-600 hover:text-red-700 mt-4"
                 >
                   Continue Shopping
-                </Link>
+                </MotionLink>
               </div>
             </div>
           </div>

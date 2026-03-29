@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { MotionLink } from "@/components/MotionLink";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -13,9 +13,9 @@ export default function TermsPage() {
     <div className="min-h-screen bg-gray-50 py-8 sm:py-12">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <p className="text-sm text-gray-500 mb-6">
-          <Link href="/" className="text-red-600 hover:text-red-700">
+          <MotionLink href="/" className="text-red-600 hover:text-red-700">
             Home
-          </Link>
+          </MotionLink>
           <span className="mx-2">/</span>
           Terms &amp; Conditions
         </p>

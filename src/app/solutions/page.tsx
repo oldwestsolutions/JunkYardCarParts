@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { MotionLink } from "@/components/MotionLink";
 import {
   ArrowDownIcon,
   BoltIcon,
@@ -174,12 +174,14 @@ export default function SolutionsPage() {
             Browse live listings, filter by category, and checkout with the same protections
             described across this page.
           </p>
-          <Link
+          <MotionLink
             href="/products"
             className="inline-block rounded-full border-2 border-white bg-white px-10 py-4 text-base font-bold text-neutral-950 transition hover:bg-neutral-200"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             View products
-          </Link>
+          </MotionLink>
         </div>
       </section>
     </div>

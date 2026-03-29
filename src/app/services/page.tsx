@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import {
   BuildingStorefrontIcon,
   ClipboardDocumentCheckIcon,
@@ -124,12 +124,12 @@ export default function ServicesPage() {
               {s.body}
             </p>
             {i === sections.length - 1 && (
-              <Link
+              <MotionLink
                 href="/products"
                 className="mt-10 inline-flex w-fit rounded-full border-2 border-current px-8 py-3 text-sm font-bold transition hover:opacity-90"
               >
                 Shop parts first
-              </Link>
+              </MotionLink>
             )}
           </div>
         </section>

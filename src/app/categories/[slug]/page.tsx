@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import { notFound } from 'next/navigation';
 import {
   SHOP_CATEGORIES,
@@ -44,13 +44,13 @@ export default async function CategoryPage({ params }: Props) {
       <section className="border-b-2 border-black bg-[var(--primary-color)]">
         <div className="mx-auto max-w-3xl px-4 py-10 sm:px-6 sm:py-14 lg:px-8">
           <p className="mb-4 text-sm text-black/70">
-            <Link href="/" className="font-medium underline-offset-4 hover:underline">
+            <MotionLink href="/" className="font-medium underline-offset-4 hover:underline">
               Home
-            </Link>
+            </MotionLink>
             <span className="mx-2 text-black/40">/</span>
-            <Link href="/#shop-by-category" className="font-medium underline-offset-4 hover:underline">
+            <MotionLink href="/#shop-by-category" className="font-medium underline-offset-4 hover:underline">
               Categories
-            </Link>
+            </MotionLink>
             <span className="mx-2 text-black/40">/</span>
             <span className="text-black/60">{cat.title}</span>
           </p>
@@ -75,19 +75,19 @@ export default async function CategoryPage({ params }: Props) {
           </div>
           <div className="border-t-2 border-black p-5 sm:p-6">
             <p className="text-base leading-relaxed text-black/85 sm:text-lg">{cat.blurb}</p>
-            <Link
+            <MotionLink
               href={productsHref}
               className="mt-6 inline-flex min-h-11 items-center justify-center rounded-md border-2 border-black bg-neutral-300 px-6 py-3 text-sm font-bold text-black transition-colors hover:bg-neutral-400"
             >
               Browse {cat.title.toLowerCase()}
-            </Link>
+            </MotionLink>
           </div>
         </div>
 
         <p className="mt-8 text-center text-sm text-black/60">
-          <Link href="/" className="font-semibold text-black underline-offset-4 hover:underline">
+          <MotionLink href="/" className="font-semibold text-black underline-offset-4 hover:underline">
             ← Back to home
-          </Link>
+          </MotionLink>
         </p>
       </section>
     </div>

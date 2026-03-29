@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import FooterSwitcher from "@/components/FooterSwitcher";
+import PageTransition from "@/components/PageTransition";
 import SiteJsonLd from "@/components/SiteJsonLd";
 import {
   DEFAULT_DESCRIPTION,
@@ -85,7 +86,7 @@ export default function RootLayout({
         <SiteJsonLd />
         <Navbar />
         <main className="min-h-screen w-full max-w-[100vw] overflow-x-hidden">
-          {children}
+          <PageTransition>{children}</PageTransition>
         </main>
         <FooterSwitcher />
         <Analytics />

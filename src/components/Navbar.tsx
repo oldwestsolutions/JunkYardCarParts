@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import { useCallback, useRef, useState } from 'react';
 import { ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { MOCK_CART_ITEMS } from '@/data/mock-cart';
@@ -60,7 +60,7 @@ export default function Navbar() {
       <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
         <div className="flex min-h-14 items-center justify-between gap-2 sm:h-16">
           <div className="flex min-w-0 flex-1 items-center gap-2 pr-2 sm:gap-3">
-            <Link href="/" className="shrink-0" aria-label="Junkyard Car Parts home">
+            <MotionLink href="/" className="shrink-0" aria-label="Junkyard Car Parts home">
               <Image
                 src="/brand-placeholder.svg"
                 alt=""
@@ -68,13 +68,13 @@ export default function Navbar() {
                 height={40}
                 className="h-9 w-9 rounded-md border-2 border-black bg-white/80 object-cover sm:h-10 sm:w-10"
               />
-            </Link>
-            <Link
+            </MotionLink>
+            <MotionLink
               href="/"
               className="truncate text-base font-bold leading-tight text-black sm:text-xl sm:leading-normal md:text-2xl"
             >
               JUNKYARD CAR PARTS
-            </Link>
+            </MotionLink>
           </div>
 
           <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
@@ -140,18 +140,18 @@ export default function Navbar() {
                         <span className="font-bold text-gray-900">${subtotal.toFixed(2)}</span>
                       </div>
                       <div className="flex flex-col gap-2 sm:flex-row">
-                        <Link
+                        <MotionLink
                           href="/cart"
                           className="block w-full rounded-md border-2 border-black bg-neutral-200 py-2.5 text-center text-sm font-bold text-black hover:bg-neutral-300"
                         >
                           View cart
-                        </Link>
-                        <Link
+                        </MotionLink>
+                        <MotionLink
                           href="/checkout"
                           className="block w-full rounded-md border-2 border-black bg-neutral-900 py-2.5 text-center text-sm font-bold text-white hover:bg-neutral-800"
                         >
                           Checkout
-                        </Link>
+                        </MotionLink>
                       </div>
                     </div>
                   </div>
@@ -188,26 +188,26 @@ export default function Navbar() {
                       Shopping
                     </p>
                     {accountLinks.map((item) => (
-                      <Link
+                      <MotionLink
                         key={item.href}
                         href={item.href}
                         className="block min-h-11 w-full px-4 py-3 text-left text-sm text-gray-900 hover:bg-gray-100 sm:py-2"
                       >
                         {item.label}
-                      </Link>
+                      </MotionLink>
                     ))}
                     <div className="my-1 border-t border-gray-200" />
                     <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
                       Help &amp; legal
                     </p>
                     {helpLinks.map((item) => (
-                      <Link
+                      <MotionLink
                         key={item.href}
                         href={item.href}
                         className="block min-h-11 w-full px-4 py-3 text-left text-sm text-gray-900 hover:bg-gray-100 sm:py-2"
                       >
                         {item.label}
-                      </Link>
+                      </MotionLink>
                     ))}
                     <div className="my-1 border-t border-gray-200" />
                     <a

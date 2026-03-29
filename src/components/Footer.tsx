@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import Link from 'next/link';
+import { MotionLink } from '@/components/MotionLink';
 import { MapPinIcon } from '@heroicons/react/24/outline';
 
 const Footer = () => {
@@ -28,19 +28,19 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/marketplace" className="text-gray-400 hover:text-white">
+                <MotionLink href="/marketplace" className="text-gray-400 hover:text-white">
                   Marketplace
-                </Link>
+                </MotionLink>
               </li>
               <li>
-                <Link href="/signature" className="text-gray-400 hover:text-white">
+                <MotionLink href="/signature" className="text-gray-400 hover:text-white">
                   Signature
-                </Link>
+                </MotionLink>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-white">
+                <MotionLink href="/services" className="text-gray-400 hover:text-white">
                   Services
-                </Link>
+                </MotionLink>
               </li>
             </ul>
           </div>
@@ -49,14 +49,14 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/blockchain" className="text-gray-400 hover:text-white">
+                <MotionLink href="/blockchain" className="text-gray-400 hover:text-white">
                   Blockchain
-                </Link>
+                </MotionLink>
               </li>
               <li>
-                <Link href="/network" className="text-gray-400 hover:text-white">
+                <MotionLink href="/network" className="text-gray-400 hover:text-white">
                   Network
-                </Link>
+                </MotionLink>
               </li>
             </ul>
           </div>
@@ -65,14 +65,14 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/help-center" className="text-gray-400 hover:text-white">
+                <MotionLink href="/help-center" className="text-gray-400 hover:text-white">
                   Help Center
-                </Link>
+                </MotionLink>
               </li>
               <li>
-                <Link href="/legal" className="text-gray-400 hover:text-white">
+                <MotionLink href="/legal" className="text-gray-400 hover:text-white">
                   Legal
-                </Link>
+                </MotionLink>
               </li>
             </ul>
           </div>
