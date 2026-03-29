@@ -14,8 +14,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/products" className="text-gray-400 hover:text-white">
-                  Shop all parts
+                <Link href="/marketplace" className="text-gray-400 hover:text-white">
+                  Marketplace
+                </Link>
+              </li>
+              <li>
+                <Link href="/signature" className="text-gray-400 hover:text-white">
+                  Signature
                 </Link>
               </li>
             </ul>
@@ -24,16 +29,6 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Solutions</h3>
             <ul className="space-y-2">
-              <li>
-                <Link href="/solutions" className="text-gray-400 hover:text-white">
-                  Overview
-                </Link>
-              </li>
-              <li>
-                <Link href="/legal" className="text-gray-400 hover:text-white">
-                  Legal
-                </Link>
-              </li>
               <li>
                 <Link href="/blockchain" className="text-gray-400 hover:text-white">
                   Blockchain
@@ -51,8 +46,8 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2 mb-4">
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white">
-                  Contact
+                <Link href="/careers" className="text-gray-400 hover:text-white">
+                  Careers
                 </Link>
               </li>
             </ul>
