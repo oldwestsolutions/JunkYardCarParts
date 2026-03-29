@@ -76,19 +76,19 @@ export default function Home() {
       <section className="relative min-h-[calc(100dvh-3.5rem)] bg-[var(--primary-color)] border-b-2 border-black flex flex-col justify-center sm:min-h-[calc(100dvh-4rem)]">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 w-full flex flex-col lg:flex-row items-center gap-8 sm:gap-10 lg:min-h-[calc(100dvh-4rem)]">
           <div className="max-w-2xl w-full">
-            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-black [text-shadow:3px_3px_0px_#FFFFFF] break-words">
+            <h1 className="text-3xl sm:text-5xl md:text-6xl font-bold mb-4 sm:mb-6 text-black break-words">
               JUNKYARD CAR PARTS
             </h1>
-            <p className="text-xl sm:text-2xl mb-4 sm:mb-6 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-xl sm:text-2xl mb-4 sm:mb-6 text-black">
               Your Ultimate Source for Custom &amp; Aftermarket Parts!
             </p>
-            <p className="text-base sm:text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-base sm:text-lg mb-3 text-black">
               Parts sourced from trusted suppliers across the U.S. and worldwide.
             </p>
-            <p className="text-base sm:text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-base sm:text-lg mb-3 text-black">
               We leverage Copart auctions where permitted to deliver the best deals.
             </p>
-            <p className="text-base sm:text-lg mb-6 sm:mb-8 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="text-base sm:text-lg mb-6 sm:mb-8 text-black">
               Pay with Bitcoin and book bonded, verified local mechanics when you need
               safe, professional installation.
             </p>
@@ -107,18 +107,18 @@ export default function Home() {
                 value={heroSearch}
                 onChange={(e) => setHeroSearch(e.target.value)}
                 placeholder="Search parts, brands, categories…"
-                className="min-h-12 w-full flex-1 rounded-md border-2 border-black px-4 py-3 text-base text-gray-900 shadow-[3px_3px_0px_0px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-black/30 sm:text-lg"
+                className="min-h-12 w-full flex-1 rounded-md border-2 border-black bg-white px-4 py-3 text-base text-gray-900 focus:outline-none focus:ring-0 sm:text-lg"
                 autoComplete="off"
                 enterKeyHint="search"
               />
               <button
                 type="submit"
-                className="min-h-12 shrink-0 bg-[var(--accent-color)] hover:bg-[var(--secondary-color)] text-black px-6 py-3 rounded-md text-base font-bold border-2 border-black shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] transition-colors sm:px-8 sm:text-lg"
+                className="min-h-12 shrink-0 bg-neutral-300 hover:bg-neutral-400 text-black px-6 py-3 rounded-md text-base font-bold border-2 border-black transition-colors sm:px-8 sm:text-lg"
               >
                 Search
               </button>
             </form>
-            <p className="mt-4 text-sm text-black/80 [text-shadow:1px_1px_0px_#FFFFFF]">
+            <p className="mt-4 text-sm text-black/80">
               <Link
                 href="/catalog"
                 className="underline font-semibold hover:text-black"
@@ -128,7 +128,7 @@ export default function Home() {
             </p>
           </div>
           <div className="w-full lg:w-[500px] lg:ml-auto shrink-0">
-            <div className="bg-white/90 p-6 rounded-lg shadow-lg group">
+            <div className="border-2 border-black bg-white/90 p-6 rounded-lg group">
               <h3 className="text-2xl font-bold mb-2 text-center text-black">
                 FEATURED PARTS
               </h3>
@@ -160,7 +160,7 @@ export default function Home() {
                               <p className="text-white/90 text-base mb-4">
                                 {part.description}
                               </p>
-                              <div className="text-[var(--accent-color)] font-bold text-xl">
+                              <div className="text-gray-200 font-bold text-xl">
                                 {part.price}
                               </div>
                             </div>
@@ -238,7 +238,7 @@ export default function Home() {
               </p>
               <Link
                 href="/catalog"
-                className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
+                className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
               >
                 Find parts for your vehicle →
               </Link>
@@ -264,72 +264,54 @@ export default function Home() {
                 description: "Power up your ride!",
                 image:
                   "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "1000 XP",
-                isNew: true,
               },
               {
                 title: "EXTERIOR PARTS",
                 description: "Make it look mean!",
                 image:
                   "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "800 XP",
-                isNew: true,
               },
               {
                 title: "INTERIOR PARTS",
                 description: "Level up your interior!",
                 image:
                   "https://images.unsplash.com/photo-1616423645488-daf7c3a0b8dd?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "600 XP",
-                isNew: true,
               },
               {
                 title: "SUSPENSION",
                 description: "Ride like a pro!",
                 image:
                   "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "900 XP",
-                isNew: true,
               },
               {
                 title: "BRAKES",
                 description: "Stop on a dime!",
                 image:
                   "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "750 XP",
-                isNew: true,
               },
               {
                 title: "LIGHTING",
                 description: "Light up the night!",
                 image:
                   "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "500 XP",
-                isNew: true,
               },
               {
                 title: "EXHAUST",
                 description: "Sound like a beast!",
                 image:
                   "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "850 XP",
-                isNew: true,
               },
               {
                 title: "WHEELS & TIRES",
                 description: "Roll in style!",
                 image:
                   "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "700 XP",
-                isNew: true,
               },
               {
                 title: "ELECTRONICS",
                 description: "Tech up your ride!",
                 image:
                   "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=640&h=384&q=80",
-                xp: "650 XP",
-                isNew: true,
               },
             ].map((category) => (
               <div
@@ -366,20 +348,10 @@ export default function Home() {
                   )}
                 </div>
                 <div className="p-4">
-                  <h3 className="text-xl font-bold mb-2 [text-shadow:1px_1px_0px_#000000]">
+                  <h3 className="text-xl font-bold mb-2 text-black">
                     {category.title}
                   </h3>
-                  <p className="text-gray-600 mb-2">{category.description}</p>
-                  <div className="flex items-center justify-between">
-                    <div className="bg-[var(--accent-color)] text-white px-3 py-1 rounded-md">
-                      {category.xp}
-                    </div>
-                    {category.isNew && (
-                      <div className="bg-red-500 text-white px-2 py-1 rounded-md text-sm">
-                        NEW!
-                      </div>
-                    )}
-                  </div>
+                  <p className="text-gray-600">{category.description}</p>
                 </div>
               </div>
             ))}
@@ -419,7 +391,7 @@ export default function Home() {
               </p>
               <Link
                 href="/catalog"
-                className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
+                className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
               >
                 Explore inventory →
               </Link>

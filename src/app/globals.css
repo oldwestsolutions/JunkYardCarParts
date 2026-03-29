@@ -37,21 +37,15 @@ body {
 
 /* Retro UI helpers (navbar + home) — min 44px for touch targets */
 .retro-button {
-  @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded border-2 border-black bg-white/90 font-bold text-black transition;
-  box-shadow: 2px 2px 0 0 #000;
-}
-.retro-button:active {
-  transform: translate(1px, 1px);
-  box-shadow: 1px 1px 0 0 #000;
+  @apply inline-flex min-h-11 min-w-11 items-center justify-center rounded border-2 border-black bg-white/90 font-bold text-black transition active:opacity-90;
 }
 
 .retro-title {
   @apply mb-6 text-center text-2xl font-black tracking-tight text-black sm:text-3xl md:text-4xl;
-  text-shadow: 2px 2px 0 #fff;
 }
 
 .retro-card {
-  @apply rounded-lg border-2 border-black bg-white shadow-[4px_4px_0_0_#000];
+  @apply rounded-lg border-2 border-black bg-white;
 }
 
 /* Mobile-friendly tap targets inside prose / links */

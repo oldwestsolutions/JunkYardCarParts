@@ -43,7 +43,7 @@ const Navbar = () => {
           <div className="flex min-w-0 flex-1 items-center pr-2">
             <Link
               href="/"
-              className="truncate text-base font-bold leading-tight text-black [text-shadow:2px_2px_0px_#FFFFFF] sm:text-xl sm:leading-normal md:text-2xl"
+              className="truncate text-base font-bold leading-tight text-black sm:text-xl sm:leading-normal md:text-2xl"
             >
               JUNKYARD CAR PARTS
             </Link>
@@ -63,7 +63,7 @@ const Navbar = () => {
               <MenuItems
                 transition
                 anchor="bottom end"
-                className="z-[100] mt-2 w-[min(18rem,calc(100vw-1.5rem))] max-h-[min(70vh,28rem)] origin-top-right overflow-y-auto rounded-md border-2 border-black bg-white py-1 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] [--anchor-gap:6px] data-[closed]:scale-95 data-[closed]:opacity-0 transition data-[open]:duration-100 data-[closed]:duration-75"
+                className="z-[100] mt-2 w-[min(18rem,calc(100vw-1.5rem))] max-h-[min(70vh,28rem)] origin-top-right overflow-y-auto rounded-md border-2 border-black bg-white py-1 [--anchor-gap:6px] data-[closed]:scale-95 data-[closed]:opacity-0 transition data-[open]:duration-100 data-[closed]:duration-75"
               >
                 <MenuHeading className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
                   Shopping
