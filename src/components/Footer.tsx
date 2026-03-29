@@ -65,13 +65,13 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/legal" className="text-gray-400 hover:text-white">
-                  Legal
+                <Link href="/help-center" className="text-gray-400 hover:text-white">
+                  Help Center
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-gray-400 hover:text-white">
-                  Careers
+                <Link href="/legal" className="text-gray-400 hover:text-white">
+                  Legal
                 </Link>
               </li>
             </ul>

@@ -15,6 +15,7 @@ const STATIC_PATHS = [
   '/marketplace',
   '/signature',
   '/services',
+  '/help-center',
   '/careers',
 ] as const;
 

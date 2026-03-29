@@ -15,6 +15,7 @@ const accountLinks = [
 ] as const;
 
 const helpLinks = [
+  { href: '/help-center', label: 'Help Center' },
   { href: '/shipping', label: 'Shipping & returns' },
   { href: '/legal', label: 'Legal & policies' },
 ] as const;
