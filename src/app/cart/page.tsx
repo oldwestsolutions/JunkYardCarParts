@@ -58,7 +58,7 @@ export default function CartPage() {
               Your cart is empty
             </h2>
             <Link
-              href="/products"
+              href="/catalog"
               className="text-red-600 hover:text-red-700 font-medium"
             >
               Continue Shopping
@@ -147,7 +147,7 @@ export default function CartPage() {
                   Proceed to Checkout
                 </button>
                 <Link
-                  href="/products"
+                  href="/catalog"
                   className="block text-center text-red-600 hover:text-red-700 mt-4"
                 >
                   Continue Shopping

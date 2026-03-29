@@ -8,32 +8,19 @@ const Footer = () => {
           <div>
             <h3 className="text-lg font-semibold mb-4">Junkyard Car Parts</h3>
             <h4 className="text-sm font-semibold text-white mb-2">Our mission</h4>
-            <p className="text-gray-400 mb-4">
+            <p className="text-gray-400">
               We run a transparent, crypto-enabled marketplace that connects buyers to
               verified parts worldwide. Trust and regulatory compliance guide how we
               source inventory, settle transactions, and support customers end to end.
             </p>
-            <h4 className="text-sm font-semibold text-white mb-2">For dealers</h4>
-            <p className="text-gray-400">
-              Dealers gain access to verified, regulated inventory and competitive
-              sourcing opportunities—including Copart-linked pipelines where allowed.
-              Crypto-enabled transactions and priority access (when permitted by program
-              rules) help you move stock faster while reinforcing compliance across the
-              network.
-            </p>
           </div>
-          
+
           <div>
-            <h3 className="text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/products" className="text-gray-400 hover:text-white">
-                  Products
-                </Link>
-              </li>
-              <li>
-                <Link href="/categories" className="text-gray-400 hover:text-white">
-                  Categories
+                <Link href="/catalog" className="text-gray-400 hover:text-white">
+                  Catalog
                 </Link>
               </li>
               <li>
@@ -53,11 +40,6 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/shipping" className="text-gray-400 hover:text-white">
-                  Shipping &amp; Returns
-                </Link>
-              </li>
-              <li>
                 <Link href="/terms" className="text-gray-400 hover:text-white">
                   Terms &amp; Conditions
                 </Link>
@@ -65,6 +47,11 @@ const Footer = () => {
               <li>
                 <Link href="/privacy" className="text-gray-400 hover:text-white">
                   Privacy Policy
+                </Link>
+              </li>
+              <li className="pt-2 border-t border-gray-700 mt-2">
+                <Link href="/legal" className="text-gray-400 hover:text-white">
+                  Legal
                 </Link>
               </li>
             </ul>
@@ -88,4 +75,4 @@ const Footer = () => {
   );
 };
 
-export default Footer; 
+export default Footer;

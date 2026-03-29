@@ -6,6 +6,12 @@ import { useState, useEffect, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
+/** Pexels CDN — avoids Next/Image optimizer issues for these two category tiles */
+const CATEGORY_IMG_INTERIOR =
+  "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=800";
+const CATEGORY_IMG_BRAKES =
+  "https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=800";
+
 export default function Home() {
   const router = useRouter();
   const [heroSearch, setHeroSearch] = useState("");
@@ -14,7 +20,7 @@ export default function Home() {
   function onHeroSearch(e: FormEvent) {
     e.preventDefault();
     const q = heroSearch.trim();
-    router.push(q ? `/products?q=${encodeURIComponent(q)}` : "/products");
+    router.push(q ? `/catalog?q=${encodeURIComponent(q)}` : "/catalog");
   }
 
   const featuredParts = [
@@ -113,7 +119,7 @@ export default function Home() {
             </form>
             <p className="mt-4 text-sm text-black/80 [text-shadow:1px_1px_0px_#FFFFFF]">
               <Link
-                href="/products"
+                href="/catalog"
                 className="underline font-semibold hover:text-black"
               >
                 View all parts
@@ -230,7 +236,7 @@ export default function Home() {
                 this catalog.
               </p>
               <Link
-                href="/products"
+                href="/catalog"
                 className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
               >
                 Find parts for your vehicle →
@@ -329,14 +335,34 @@ export default function Home() {
                 key={category.title}
                 className="retro-card group relative overflow-hidden"
               >
-                <div className="relative h-48">
-                  <Image
-                    src={category.image}
-                    alt={category.description}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width:768px)100vw,33vw"
-                  />
+                <div className="relative h-48 bg-gray-200">
+                  {category.title === "INTERIOR PARTS" ? (
+                    <Image
+                      src={CATEGORY_IMG_INTERIOR}
+                      alt={category.description}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width:768px)100vw,33vw"
+                      unoptimized
+                    />
+                  ) : category.title === "BRAKES" ? (
+                    <Image
+                      src={CATEGORY_IMG_BRAKES}
+                      alt={category.description}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width:768px)100vw,33vw"
+                      unoptimized
+                    />
+                  ) : (
+                    <Image
+                      src={category.image}
+                      alt={category.description}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width:768px)100vw,33vw"
+                    />
+                  )}
                 </div>
                 <div className="p-4">
                   <h3 className="text-xl font-bold mb-2 [text-shadow:1px_1px_0px_#000000]">
@@ -391,7 +417,7 @@ export default function Home() {
                 dealers, and enthusiasts who rely on this platform every day.
               </p>
               <Link
-                href="/products"
+                href="/catalog"
                 className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
               >
                 Explore inventory →

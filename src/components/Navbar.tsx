@@ -17,9 +17,9 @@ import {
 } from '@heroicons/react/24/outline';
 
 const accountLinks = [
-  { href: '/products', label: 'Shop all parts' },
-  { href: '/products?q=Lighting', label: 'Lighting' },
-  { href: '/products?q=Interior', label: 'Interior parts' },
+  { href: '/catalog', label: 'Shop all parts' },
+  { href: '/catalog?q=Lighting', label: 'Lighting' },
+  { href: '/catalog?q=Interior', label: 'Interior parts' },
   { href: '/cart', label: 'Cart' },
   { href: '/checkout', label: 'Checkout' },
 ] as const;
