@@ -8,6 +8,10 @@ const Footer = () => {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
             <h3 className="text-lg font-semibold mb-4">Junkyard Car Parts</h3>
+            <p className="flex items-start gap-2 text-sm text-gray-400 sm:text-base">
+              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-gray-300" aria-hidden />
+              <span>Louisiana, USA</span>
+            </p>
           </div>
 
           <div>
@@ -44,17 +48,18 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-2 mb-4">
+            <ul className="space-y-2">
+              <li>
+                <Link href="/legal" className="text-gray-400 hover:text-white">
+                  Legal
+                </Link>
+              </li>
               <li>
                 <Link href="/careers" className="text-gray-400 hover:text-white">
                   Careers
                 </Link>
               </li>
             </ul>
-            <p className="flex items-start gap-2 text-sm text-gray-400 sm:text-base">
-              <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-gray-300" aria-hidden />
-              <span>Louisiana, USA</span>
-            </p>
           </div>
         </div>
 
