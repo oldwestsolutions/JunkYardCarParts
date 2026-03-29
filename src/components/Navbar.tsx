@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useRef, useState } from 'react';
-import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 import { MOCK_CART_ITEMS } from '@/data/mock-cart';
 
 const accountLinks = [
@@ -20,8 +20,8 @@ const helpLinks = [
   { href: '/legal', label: 'Legal & policies' },
 ] as const;
 
-const triggerClass =
-  'inline-flex min-h-11 items-center gap-1 rounded-md border-0 bg-transparent px-2 py-2 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-black/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:px-3';
+const iconTriggerClass =
+  'inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border-0 bg-transparent p-0 text-black transition hover:bg-black/[0.06] active:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20';
 
 function useHoverPanelCloseDelay(delayMs: number) {
   const t = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -77,8 +77,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
-            {/* Cart — hover shows cart preview (not icon-only) */}
+          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
+            {/* Cart — icon trigger; hover shows cart preview */}
             <div
               className="relative"
               onMouseEnter={() => {
@@ -91,13 +91,14 @@ export default function Navbar() {
             >
               <button
                 type="button"
-                className={triggerClass}
+                className={iconTriggerClass}
+                title="Cart"
                 aria-expanded={cartOpen}
                 aria-haspopup="true"
                 aria-controls="nav-cart-dropdown"
+                aria-label="Shopping cart"
               >
-                Cart
-                <ChevronDownIcon className="h-4 w-4 opacity-70" aria-hidden />
+                <ShoppingCartIcon className="h-6 w-6" aria-hidden />
               </button>
               {cartOpen && (
                 <div id="nav-cart-dropdown" className={panelClass} role="region" aria-label="Shopping cart preview">
@@ -158,7 +159,7 @@ export default function Navbar() {
               )}
             </div>
 
-            {/* Account — hover shows links (not icon-only) */}
+            {/* Account — icon trigger; hover shows menu */}
             <div
               className="relative"
               onMouseEnter={() => {
@@ -171,13 +172,14 @@ export default function Navbar() {
             >
               <button
                 type="button"
-                className={triggerClass}
+                className={iconTriggerClass}
+                title="Account"
                 aria-expanded={accountOpen}
                 aria-haspopup="true"
                 aria-controls="nav-account-dropdown"
+                aria-label="Account menu"
               >
-                Account
-                <ChevronDownIcon className="h-4 w-4 opacity-70" aria-hidden />
+                <UserCircleIcon className="h-6 w-6 shrink-0" aria-hidden />
               </button>
               {accountOpen && (
                 <div id="nav-account-dropdown" className={panelClass} role="navigation" aria-label="Account menu">
