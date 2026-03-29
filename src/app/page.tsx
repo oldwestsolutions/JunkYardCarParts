@@ -279,7 +279,7 @@ export default function Home() {
                 title: "INTERIOR PARTS",
                 description: "Level up your interior!",
                 image:
-                  "https://images.unsplash.com/photo-1507136564506-3b446194ccb3?auto=format&fit=crop&w=640&h=384&q=80",
+                  "https://images.unsplash.com/photo-1616423645488-daf7c3a0b8dd?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "600 XP",
                 isNew: true,
               },
@@ -303,7 +303,7 @@ export default function Home() {
                 title: "LIGHTING",
                 description: "Light up the night!",
                 image:
-                  "https://images.unsplash.com/photo-1494905998402-395d57936e27?auto=format&fit=crop&w=640&h=384&q=80",
+                  "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=640&h=384&q=80",
                 xp: "500 XP",
                 isNew: true,
               },
