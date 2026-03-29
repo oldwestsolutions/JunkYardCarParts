@@ -9,9 +9,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Blockchain | Junkyard Car Parts',
+  title: 'Blockchain & Trust',
   description:
-    'How blockchain-backed processes support transparent settlement, verifiable records, and trusted commerce on Junkyard Car Parts.',
+    'Blockchain and verification technology on Junkyard Car Parts used car parts marketplace — settlement, records, and secure checkout.',
+  alternates: { canonical: '/blockchain' },
 };
 
 const pillars = [

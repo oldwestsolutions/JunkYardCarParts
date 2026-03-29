@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Terms & Conditions | Junkyard Car Parts",
+  title: "Terms & Conditions",
   description:
-    "Terms and conditions for using the Junkyard Car Parts marketplace, owned by Auto Equity Group.",
+    "Terms of use for Junkyard Car Parts, the used car parts marketplace operated under Auto Equity Group.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

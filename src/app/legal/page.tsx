@@ -2,8 +2,10 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: 'Legal | Junkyard Car Parts',
-  description: 'Legal information, policies, and compliance resources for Junkyard Car Parts.',
+  title: 'Legal',
+  description:
+    'Legal hub for Junkyard Car Parts used car parts marketplace: policies, terms, privacy documents, and compliance resources.',
+  alternates: { canonical: '/legal' },
 };
 
 /** Set in `.env.local`: shared Dropbox links to your PDFs or docs. */

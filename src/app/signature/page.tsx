@@ -9,9 +9,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Signature | Junkyard Car Parts',
+  title: 'Signature Custom Parts',
   description:
-    'Signature custom parts and accessories from independent Etsy-class makers—curated style for builds that stand apart.',
+    'Signature line: custom car parts and accessories from independent makers for your used car parts build — curated listings on Junkyard Car Parts.',
+  alternates: { canonical: '/signature' },
 };
 
 const pillars = [

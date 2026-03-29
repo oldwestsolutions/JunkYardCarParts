@@ -140,24 +140,22 @@ function ProductsContent({ basePath }: ProductsContentProps) {
     <div className="min-h-screen bg-gray-50 py-6 sm:py-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-2xl font-bold text-gray-900 mb-3 sm:text-3xl">
-          Global inventory & Copart auction parts
+          Used car parts marketplace
         </h1>
         <p className="text-sm text-gray-700 mb-3 max-w-3xl sm:text-base">
-          Explore our global auto parts marketplace with regulated Copart
-          participation, supplier verification, and lot-level transparency on
-          eligible listings. Every card shows{' '}
+          Shop verified <span className="font-medium">used auto parts</span> from trusted
+          suppliers and salvage channels. Every listing highlights{' '}
           <span className="font-medium">source location</span>,{' '}
-          <span className="font-medium">part condition</span>, and{' '}
-          <span className="font-medium">verification notes</span>—plus a Copart lot
-          ID when the unit is Copart-sourced.
+          <span className="font-medium">condition</span>, and{' '}
+          <span className="font-medium">verification notes</span>
+          —plus auction or lot identifiers when the part is sourced that way.
         </p>
         <p className="text-sm text-gray-600 mb-6 max-w-3xl sm:text-base">
-          This product inventory sits inside a broader <span className="font-medium">global auto
-          parts marketplace</span> that also lists <span className="font-medium">
-          Copart auction parts</span> when regulations and seller permissions align.
-          Eligible checkouts support <span className="font-medium">crypto car parts
-          payments</span>, and you can add <span className="font-medium">bonded mechanic
-          installation</span> for verified local pros.
+          Junkyard Car Parts is a <span className="font-medium">used car parts marketplace</span>{' '}
+          focused on transparent listings: OEM and aftermarket, new-old-stock where noted, and
+          recycled components when condition is documented. Eligible orders may offer{' '}
+          <span className="font-medium">crypto payments</span> and{' '}
+          <span className="font-medium">bonded mechanic installation</span> in supported areas.
         </p>
 
         <form

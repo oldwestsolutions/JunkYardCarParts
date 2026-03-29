@@ -9,9 +9,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Marketplace | Junkyard Car Parts',
+  title: 'Mission-Critical Used Parts',
   description:
-    'Mission-critical used and salvage parts—verified listings, transparent sourcing, and fast paths to keep your vehicle on the road.',
+    'Marketplace for mission-critical used car parts and salvage components — brakes, steering, drivetrain, and more with verified listings.',
+  alternates: { canonical: '/marketplace' },
 };
 
 const highlights = [

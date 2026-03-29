@@ -17,10 +17,17 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const cat = getCategoryBySlug(slug);
-  if (!cat) return { title: 'Category | Junkyard Car Parts' };
+  if (!cat) return { title: 'Category' };
+  const desc = `Buy ${cat.title.toLowerCase()} — used car parts online. ${cat.blurb}`;
   return {
-    title: `${cat.title} | Junkyard Car Parts`,
-    description: `${cat.description} Shop ${cat.title} on Junkyard Car Parts.`,
+    title: cat.title,
+    description: desc,
+    alternates: { canonical: `/categories/${cat.slug}` },
+    openGraph: {
+      title: `${cat.title} — Used Car Parts`,
+      description: desc,
+      url: `/categories/${cat.slug}`,
+    },
   };
 }
 

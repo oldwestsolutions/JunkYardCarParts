@@ -9,9 +9,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Network | Junkyard Car Parts',
+  title: 'Network & Fulfillment',
   description:
-    'Global fulfillment partners, resilient infrastructure, and how Junkyard Car Parts connects buyers to verified inventory.',
+    'How the Junkyard Car Parts network connects buyers to used car parts: suppliers, shipping, and fulfillment infrastructure.',
+  alternates: { canonical: '/network' },
 };
 
 const layers = [

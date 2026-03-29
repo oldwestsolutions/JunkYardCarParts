@@ -9,9 +9,10 @@ import {
 } from '@heroicons/react/24/outline';
 
 export const metadata: Metadata = {
-  title: 'Careers | Junkyard Car Parts',
+  title: 'Careers',
   description:
-    'Join the team building a transparent global auto parts marketplace—engineering, operations, and customer success in Louisiana and remote.',
+    'Careers at Junkyard Car Parts — build the used car parts marketplace: engineering, operations, and customer roles in Louisiana and remote.',
+  alternates: { canonical: '/careers' },
 };
 
 const values = [

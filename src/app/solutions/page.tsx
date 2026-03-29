@@ -11,9 +11,10 @@ import {
 } from "@heroicons/react/24/outline";
 
 export const metadata: Metadata = {
-  title: "Blockchain Solutions | Junkyard Car Parts",
+  title: "Solutions",
   description:
-    "How distributed ledger technology powers settlement, trust, and transparency when you buy parts on Junkyard Car Parts.",
+    "Technology solutions behind Junkyard Car Parts used car parts marketplace — blockchain, verification, and secure transactions.",
+  alternates: { canonical: "/solutions" },
 };
 
 const sections = [

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Shipping & Returns | Junkyard Car Parts",
+  title: "Shipping & Returns",
   description:
-    "Shipping, delivery, and returns information for Junkyard Car Parts orders.",
+    "Shipping, delivery timelines, and returns for used car parts ordered from Junkyard Car Parts — domestic and international where available.",
+  alternates: { canonical: "/shipping" },
 };
 
 export default function ShippingPage() {

@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Junkyard Car Parts",
+  title: "Privacy Policy",
   description:
-    "How Junkyard Car Parts and Auto Equity Group collect, use, and protect your information.",
+    "Privacy policy for Junkyard Car Parts used car parts marketplace: how we collect, use, and protect your data when you shop used auto parts online.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {
