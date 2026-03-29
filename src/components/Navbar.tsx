@@ -2,22 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import {
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-  MenuHeading,
-  MenuSeparator,
-} from '@headlessui/react';
-import { ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline';
+import { useCallback, useRef, useState } from 'react';
+import { ChevronDownIcon } from '@heroicons/react/24/outline';
+import { MOCK_CART_ITEMS } from '@/data/mock-cart';
 
 const accountLinks = [
   { href: '/products', label: 'Shop all parts' },
   { href: '/services', label: 'Services' },
   { href: '/products?q=Lighting', label: 'Lighting' },
   { href: '/products?q=Interior', label: 'Interior parts' },
-  { href: '/cart', label: 'Cart' },
   { href: '/checkout', label: 'Checkout' },
 ] as const;
 
@@ -26,20 +19,45 @@ const helpLinks = [
   { href: '/legal', label: 'Legal & policies' },
 ] as const;
 
-const navIconBtn =
-  'inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-md border-0 bg-transparent p-0 text-black transition hover:bg-black/[0.06] active:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20';
+const triggerClass =
+  'inline-flex min-h-11 items-center gap-1 rounded-md border-0 bg-transparent px-2 py-2 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-black/[0.06] focus:outline-none focus-visible:ring-2 focus-visible:ring-black/20 sm:px-3';
 
-function menuItemClass(focus: boolean) {
-  return `block w-full min-h-11 px-4 py-3 text-left text-sm text-gray-900 sm:py-2 ${
-    focus ? 'bg-gray-100' : ''
-  }`;
+function useHoverPanelCloseDelay(delayMs: number) {
+  const t = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const clear = useCallback(() => {
+    if (t.current) clearTimeout(t.current);
+    t.current = null;
+  }, []);
+  const scheduleClose = useCallback(
+    (setter: (v: boolean) => void) => {
+      clear();
+      t.current = setTimeout(() => setter(false), delayMs);
+    },
+    [clear, delayMs]
+  );
+  return { clear, scheduleClose };
 }
 
-const Navbar = () => {
+export default function Navbar() {
+  const [cartOpen, setCartOpen] = useState(false);
+  const [accountOpen, setAccountOpen] = useState(false);
+  const cartHover = useHoverPanelCloseDelay(120);
+  const accountHover = useHoverPanelCloseDelay(120);
+
+  const subtotal = MOCK_CART_ITEMS.reduce(
+    (sum, item) => sum + item.price * item.quantity,
+    0
+  );
+
+  const panelClass =
+    'absolute right-0 top-full z-[100] w-[min(22rem,calc(100vw-1.5rem))] pt-1 [--anchor-gap:4px]';
+
+  const dropdownSurface = 'rounded-md border-2 border-black bg-white';
+
   return (
-    <nav className="sticky top-0 z-50 bg-[var(--primary-color)] border-b-2 border-black pt-[env(safe-area-inset-top)]">
-      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between min-h-14 sm:h-16 gap-2">
+    <nav className="sticky top-0 z-50 border-b-2 border-black bg-[var(--primary-color)] pt-[env(safe-area-inset-top)]">
+      <div className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex min-h-14 items-center justify-between gap-2 sm:h-16">
           <div className="flex min-w-0 flex-1 items-center gap-2 pr-2 sm:gap-3">
             <Link href="/" className="shrink-0" aria-label="Junkyard Car Parts home">
               <Image
@@ -58,68 +76,150 @@ const Navbar = () => {
             </Link>
           </div>
 
-          <div className="flex shrink-0 items-center gap-1.5 sm:gap-3">
-            <Link
-              href="/cart"
-              className={navIconBtn}
-              title="Cart"
-              aria-label="Shopping cart"
+          <div className="flex shrink-0 items-center gap-1 sm:gap-2">
+            {/* Cart — hover shows cart preview (not icon-only) */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                cartHover.clear();
+                setCartOpen(true);
+              }}
+              onMouseLeave={() => {
+                cartHover.scheduleClose(setCartOpen);
+              }}
             >
-              <ShoppingCartIcon className="h-6 w-6" />
-            </Link>
-
-            <Menu as="div" className="relative">
-              <MenuButton className={navIconBtn} title="Account" aria-label="Account menu">
-                <UserCircleIcon className="h-6 w-6 shrink-0" aria-hidden />
-              </MenuButton>
-              <MenuItems
-                transition
-                anchor="bottom end"
-                className="z-[100] mt-2 w-[min(18rem,calc(100vw-1.5rem))] max-h-[min(70vh,28rem)] origin-top-right overflow-y-auto rounded-md border-2 border-black bg-white py-1 [--anchor-gap:6px] data-[closed]:scale-95 data-[closed]:opacity-0 transition data-[open]:duration-100 data-[closed]:duration-75"
+              <button
+                type="button"
+                className={triggerClass}
+                aria-expanded={cartOpen}
+                aria-haspopup="true"
+                aria-controls="nav-cart-dropdown"
               >
-                <MenuHeading className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
-                  Shopping
-                </MenuHeading>
-                {accountLinks.map((item) => (
-                  <MenuItem key={item.href}>
-                    {({ focus }) => (
-                      <Link href={item.href} className={menuItemClass(focus)}>
+                Cart
+                <ChevronDownIcon className="h-4 w-4 opacity-70" aria-hidden />
+              </button>
+              {cartOpen && (
+                <div id="nav-cart-dropdown" className={panelClass} role="region" aria-label="Shopping cart preview">
+                  <div className={`${dropdownSurface} max-h-[min(70vh,24rem)] overflow-y-auto p-4`}>
+                    <p className="mb-3 text-xs font-bold uppercase tracking-wide text-gray-500">
+                      Your cart
+                    </p>
+                    {MOCK_CART_ITEMS.length === 0 ? (
+                      <p className="text-sm text-gray-600">Your cart is empty.</p>
+                    ) : (
+                      <ul className="space-y-3">
+                        {MOCK_CART_ITEMS.map((item) => (
+                          <li key={item.id} className="flex gap-3 border-b border-gray-100 pb-3 last:border-0 last:pb-0">
+                            <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded border border-gray-200">
+                              <Image
+                                src={item.image}
+                                alt=""
+                                fill
+                                className="object-cover"
+                                sizes="56px"
+                              />
+                            </div>
+                            <div className="min-w-0 flex-1">
+                              <p className="text-sm font-semibold leading-snug text-gray-900 line-clamp-2">
+                                {item.name}
+                              </p>
+                              <p className="text-xs text-gray-500">Qty {item.quantity}</p>
+                              <p className="text-sm font-semibold text-gray-900">
+                                ${(item.price * item.quantity).toFixed(2)}
+                              </p>
+                            </div>
+                          </li>
+                        ))}
+                      </ul>
+                    )}
+                    <div className="mt-4 border-t border-gray-200 pt-3">
+                      <div className="mb-3 flex justify-between text-sm">
+                        <span className="text-gray-600">Subtotal</span>
+                        <span className="font-bold text-gray-900">${subtotal.toFixed(2)}</span>
+                      </div>
+                      <div className="flex flex-col gap-2 sm:flex-row">
+                        <Link
+                          href="/cart"
+                          className="block w-full rounded-md border-2 border-black bg-neutral-200 py-2.5 text-center text-sm font-bold text-black hover:bg-neutral-300"
+                        >
+                          View cart
+                        </Link>
+                        <Link
+                          href="/checkout"
+                          className="block w-full rounded-md border-2 border-black bg-neutral-900 py-2.5 text-center text-sm font-bold text-white hover:bg-neutral-800"
+                        >
+                          Checkout
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            {/* Account — hover shows links (not icon-only) */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                accountHover.clear();
+                setAccountOpen(true);
+              }}
+              onMouseLeave={() => {
+                accountHover.scheduleClose(setAccountOpen);
+              }}
+            >
+              <button
+                type="button"
+                className={triggerClass}
+                aria-expanded={accountOpen}
+                aria-haspopup="true"
+                aria-controls="nav-account-dropdown"
+              >
+                Account
+                <ChevronDownIcon className="h-4 w-4 opacity-70" aria-hidden />
+              </button>
+              {accountOpen && (
+                <div id="nav-account-dropdown" className={panelClass} role="navigation" aria-label="Account menu">
+                  <div className={`${dropdownSurface} max-h-[min(70vh,28rem)] overflow-y-auto py-2`}>
+                    <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
+                      Shopping
+                    </p>
+                    {accountLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block min-h-11 w-full px-4 py-3 text-left text-sm text-gray-900 hover:bg-gray-100 sm:py-2"
+                      >
                         {item.label}
                       </Link>
-                    )}
-                  </MenuItem>
-                ))}
-                <MenuSeparator className="my-1 border-t border-gray-200" />
-                <MenuHeading className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
-                  Help &amp; legal
-                </MenuHeading>
-                {helpLinks.map((item) => (
-                  <MenuItem key={item.href}>
-                    {({ focus }) => (
-                      <Link href={item.href} className={menuItemClass(focus)}>
+                    ))}
+                    <div className="my-1 border-t border-gray-200" />
+                    <p className="px-4 py-2 text-xs font-bold uppercase tracking-wide text-gray-500">
+                      Help &amp; legal
+                    </p>
+                    {helpLinks.map((item) => (
+                      <Link
+                        key={item.href}
+                        href={item.href}
+                        className="block min-h-11 w-full px-4 py-3 text-left text-sm text-gray-900 hover:bg-gray-100 sm:py-2"
+                      >
                         {item.label}
                       </Link>
-                    )}
-                  </MenuItem>
-                ))}
-                <MenuSeparator className="my-1 border-t border-gray-200" />
-                <MenuItem>
-                  {({ focus }) => (
+                    ))}
+                    <div className="my-1 border-t border-gray-200" />
                     <a
                       href="mailto:support@junkyardcarparts.com"
-                      className={menuItemClass(focus)}
+                      className="block min-h-11 w-full px-4 py-3 text-left text-sm text-gray-900 hover:bg-gray-100 sm:py-2"
                     >
                       Email support
                     </a>
-                  )}
-                </MenuItem>
-              </MenuItems>
-            </Menu>
+                  </div>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
     </nav>
   );
-};
-
-export default Navbar;
+}

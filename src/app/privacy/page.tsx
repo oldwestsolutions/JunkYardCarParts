@@ -43,8 +43,8 @@ export default function PrivacyPage() {
               We may collect contact details (name, email, phone, shipping address), order
               and payment-related data (processed by payment partners), device and log
               data (IP address, browser type), and communications you send to support. If
-              you use crypto checkout, our partners may process wallet or transaction
-              references as required for compliance.
+              you pay through our partners, they may process transaction references as
+              required for compliance.
             </p>
           </section>
           <section>

@@ -3,29 +3,10 @@
 import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
-// Mock cart data - in a real app, this would come from your state management
-const cartItems = [
-  {
-    id: 1,
-    name: 'Performance Exhaust System',
-    price: 299.99,
-    image:
-      'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=400&q=80',
-    quantity: 1,
-  },
-  {
-    id: 2,
-    name: 'LED Headlight Kit',
-    price: 149.99,
-    image:
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=80',
-    quantity: 2,
-  },
-];
+import { MOCK_CART_ITEMS } from '@/data/mock-cart';
 
 export default function CartPage() {
-  const [items, setItems] = useState(cartItems);
+  const [items, setItems] = useState(() => [...MOCK_CART_ITEMS]);
 
   const updateQuantity = (id: number, newQuantity: number) => {
     if (newQuantity < 1) return;
@@ -47,9 +28,8 @@ export default function CartPage() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h1 className="text-2xl font-bold text-gray-900 mb-2 sm:text-3xl">Shopping Cart</h1>
         <p className="text-sm text-gray-600 mb-8 max-w-2xl">
-          Review Copart-sourced and marketplace items together. At checkout you can
-          choose Bitcoin on supported orders and schedule bonded mechanic installation
-          with verified technicians in your area.
+          Review your items before checkout. You can pay with major cards and schedule bonded
+          mechanic installation with verified technicians in your area when offered.
         </p>
 
         {items.length === 0 ? (

@@ -43,8 +43,8 @@ export default function TermsPage() {
               Marketplace &amp; third parties
             </h2>
             <p>
-              Listings may originate from verified suppliers, auction channels (including
-              Copart where permitted), and partner networks. Availability, pricing, and
+              Listings may originate from verified suppliers, auction channels where
+              permitted, and partner networks. Availability, pricing, and
               condition are described on each listing. We do not guarantee that every part
               fits every vehicle; you are responsible for confirming fitment and
               compatibility before purchase.
@@ -52,14 +52,13 @@ export default function TermsPage() {
           </section>
           <section>
             <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
-              Payments &amp; crypto
+              Payments
             </h2>
             <p>
-              We may offer card and other payment methods, and—where eligible—Bitcoin or
-              other digital asset flows through approved processors. Crypto availability,
-              fees, and settlement timing depend on program rules and compliance checks.
-              You authorize us and our processors to charge or settle transactions in
-              accordance with the checkout you complete.
+              We may offer card and other payment methods through approved processors.
+              Availability, fees, and settlement timing depend on program rules and
+              compliance checks. You authorize us and our processors to charge or settle
+              transactions in accordance with the checkout you complete.
             </p>
           </section>
           <section>

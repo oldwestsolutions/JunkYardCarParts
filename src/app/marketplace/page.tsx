@@ -25,7 +25,7 @@ const highlights = [
   {
     title: 'Verified sourcing',
     body:
-      'Supplier checks, documentation where available, and Copart-linked lanes when regulations allow—so provenance is never an afterthought.',
+      'Supplier checks, documentation where available, and auction-linked lanes when regulations allow—so provenance is never an afterthought.',
     icon: ShieldCheckIcon,
   },
   {

@@ -19,7 +19,7 @@ const pillars = [
   {
     title: 'Transparent settlement',
     body:
-      'Cryptographic proofs help align what buyers pay with what sellers and fulfillment partners expect—reducing ambiguity when orders cross borders, currencies, or payment rails.',
+      'Verifiable records help align what buyers pay with what sellers and fulfillment partners expect—reducing ambiguity when orders cross borders, currencies, or payment rails.',
     icon: CurrencyDollarIcon,
   },
   {
@@ -29,15 +29,15 @@ const pillars = [
     icon: DocumentCheckIcon,
   },
   {
-    title: 'Wallet-native checkout',
+    title: 'Streamlined checkout',
     body:
-      'Where supported, connect a compatible wallet for Bitcoin and other assets. You review human-readable summaries before signing—fees, destinations, and timing stay in your control.',
+      'Where supported, saved payment profiles and digital receipts keep approvals clear—fees, destinations, and timing stay visible before you confirm.',
     icon: CubeIcon,
   },
   {
     title: 'Security-first design',
     body:
-      'Private keys stay in your wallet. Our systems use modern transport security, least-privilege services, and monitoring tuned for high-value parts commerce.',
+      'Payment details stay protected in PCI-aware flows. Our systems use modern transport security, least-privilege services, and monitoring tuned for high-value parts commerce.',
     icon: LockClosedIcon,
   },
 ];
@@ -91,13 +91,12 @@ export default function BlockchainPage() {
               Auto parts involve high value, condition nuance, and cross-border logistics.
               Blockchain-style attestations complement—not replace—traditional invoices and
               carrier tracking: they give buyers and sellers a shared anchor when it matters
-              most, especially for verified suppliers and Copart-sourced inventory where
+              most, especially for verified suppliers and auction-sourced inventory where
               documentation must line up.
             </p>
             <p className="mt-4 text-neutral-700 leading-relaxed">
-              You do not need to be a crypto expert to shop. Fiat paths remain available;
-              blockchain options appear when you choose wallet-based checkout on eligible
-              orders.
+              You do not need specialized knowledge to shop. Standard card checkout remains available;
+              optional record-anchoring features may appear on eligible orders.
             </p>
           </div>
         </div>

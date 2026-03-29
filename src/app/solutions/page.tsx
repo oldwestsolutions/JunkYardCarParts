@@ -22,7 +22,7 @@ const sections = [
     id: "settlement",
     title: "Verifiable settlement",
     body:
-      "Every eligible transaction is anchored to cryptographic proofs so buyers and sellers share one source of truth—reducing disputes and speeding reconciliation across suppliers and fulfillment partners.",
+      "Every eligible transaction is anchored to verifiable records so buyers and sellers share one source of truth—reducing disputes and speeding reconciliation across suppliers and fulfillment partners.",
     icon: ShieldCheckIcon,
     image:
       "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=1600&q=80",
@@ -30,10 +30,10 @@ const sections = [
     align: "left" as const,
   },
   {
-    id: "wallets",
-    title: "Wallet-ready commerce",
+    id: "checkout",
+    title: "Secure commerce",
     body:
-      "Connect compatible wallets for Bitcoin and other supported assets. Quotes, fees, and confirmations are surfaced in plain language so you always know what you are approving before funds move.",
+      "Secure checkout surfaces quotes, fees, and confirmations in plain language so you always know what you are approving before funds move.",
     icon: BoltIcon,
     image:
       "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=1600&q=80",
@@ -55,7 +55,7 @@ const sections = [
     id: "trust",
     title: "Supplier & lot transparency",
     body:
-      "Where Copart-sourced or verified inventory is involved, blockchain-backed attestations help tie listings to documented sourcing—so you see the story behind the part, not just a photo.",
+      "Where auction-sourced or verified inventory is involved, blockchain-backed attestations help tie listings to documented sourcing—so you see the story behind the part, not just a photo.",
     icon: LinkIcon,
     image:
       "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=1600&q=80",
@@ -66,7 +66,7 @@ const sections = [
     id: "security",
     title: "Security at the edge",
     body:
-      "Keys never leave your wallet’s control. Our stack emphasizes least-privilege APIs, modern transport security, and monitoring tuned for high-value automotive commerce.",
+      "Sensitive payment data stays within PCI-aware flows. Our stack emphasizes least-privilege APIs, modern transport security, and monitoring tuned for high-value automotive commerce.",
     icon: LockClosedIcon,
     image:
       "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=1600&q=80",
@@ -107,7 +107,7 @@ export default function SolutionsPage() {
           <p className="mb-10 max-w-2xl text-lg leading-relaxed text-neutral-300 sm:text-xl">
             From settlement rails to verifiable records, Junkyard Car Parts is built so
             enthusiasts and pros get clarity, speed, and security when they transact—whether
-            they pay with crypto or traditional methods alongside it.
+            they pay with card or other approved methods alongside it.
           </p>
           <a
             href="#settlement"

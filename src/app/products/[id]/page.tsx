@@ -10,12 +10,12 @@ const product = {
   price: 299.99,
   category: 'Exhaust',
   description:
-    'High-performance exhaust system engineered for better flow, sound control, and durability. Listing data includes sourcing transparency so you know where it shipped from, how it was verified, and whether it moved through a Copart pipeline.',
+    'High-performance exhaust system engineered for better flow, sound control, and durability. Listing data includes sourcing transparency so you know where it shipped from and how it was verified.',
   sourceLocation: 'Dalton, GA, USA · Verified supplier network',
-  copartLotId: '8843215-US',
+  sourceLotId: '8843215-US',
   condition: 'New – aftermarket (verified SKU)',
   verification:
-    'Two-step supplier onboarding, invoice versus packing slip match, and destination photos prior to dispatch. Copart auction documentation archived for this lot where participation is permitted.',
+    'Two-step supplier onboarding, invoice versus packing slip match, and destination photos prior to dispatch. Auction documentation archived for this lot when applicable.',
   features: [
     'Stainless steel construction',
     'Improved exhaust flow',
@@ -96,15 +96,15 @@ export default function ProductPage() {
 
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-3">
-                Sourcing, Copart data & verification
+                Sourcing &amp; verification
               </h2>
               <p className="text-gray-600 mb-2">
                 <span className="font-semibold text-gray-800">Source location: </span>
                 {product.sourceLocation}
               </p>
               <p className="text-gray-600 mb-2">
-                <span className="font-semibold text-gray-800">Copart lot ID: </span>
-                {product.copartLotId} (displayed on Copart-sourced listings)
+                <span className="font-semibold text-gray-800">Source lot ID: </span>
+                {product.sourceLotId} (shown when the listing includes auction or salvage sourcing)
               </p>
               <p className="text-gray-600 mb-2">
                 <span className="font-semibold text-gray-800">Part condition: </span>
@@ -115,19 +115,17 @@ export default function ProductPage() {
                 {product.verification}
               </p>
               <p className="text-sm text-gray-600">
-                Shoppers exploring <span className="font-medium">global auto parts
-                Bitcoin</span> checkout paths and <span className="font-medium">
-                Copart-sourced parts</span> disclosures will see the same data points
-                mirrored on invoices for audit-friendly record keeping.
+                Checkout and sourcing disclosures use the same data points on invoices for
+                clear, audit-friendly record keeping.
               </p>
             </div>
 
             <div className="mb-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                Crypto checkout & installation
+                Checkout &amp; installation
               </h2>
               <p className="text-gray-700 mb-2">
-                Purchase this part securely using Bitcoin.
+                Purchase this part securely with major cards or approved payment methods.
               </p>
               <p className="text-gray-700 mb-2">
                 Arrange professional installation with verified mechanics near you.
@@ -137,8 +135,7 @@ export default function ProductPage() {
                 compliant from lift to final torque.
               </p>
               <p className="text-sm text-gray-600">
-                Together, those services reinforce this{' '}
-                <span className="font-medium">crypto car parts marketplace</span>{' '}
+                Together, those services reinforce a consistent used auto parts shopping
                 experience without sacrificing the bonded mechanic installation standards
                 professional installers expect.
               </p>
@@ -187,7 +184,7 @@ export default function ProductPage() {
               <p className="text-gray-600">
                 Free shipping on orders over $100 for domestic routes. International lanes
                 may incur duties depending on supplier country. Returns follow a
-                documented chain-of-custody policy—especially for Copart-linked inventory—so
+                documented chain-of-custody policy—especially for auction-sourced inventory—so
                 we can uphold regulated sourcing requirements.
               </p>
             </div>

@@ -32,7 +32,7 @@ export default function ShippingPage() {
             </h2>
             <p>
               We ship eligible orders via carriers selected at checkout. Processing time
-              depends on supplier location, verification steps (including Copart-linked
+              depends on supplier location, verification steps (including auction-linked
               documentation when applicable), and carrier pickup schedules. Estimated
               delivery windows are shown before you pay; they are not guaranteed unless
               explicitly stated for a specific service level.
@@ -68,7 +68,7 @@ export default function ShippingPage() {
                 support@junkyardcarparts.com
               </a>{" "}
               with your order number and photos if we request them. Approved refunds are
-              issued to the original payment method when possible; crypto-settled orders
+              issued to the original payment method when possible; orders paid through alternate flows
               follow the processor&apos;s refund policy and timing.
             </p>
             <p>

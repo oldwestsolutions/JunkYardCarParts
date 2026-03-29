@@ -80,7 +80,7 @@ export default function NetworkPage() {
             </h2>
             <p className="text-neutral-700 leading-relaxed">
               Every part passes through sourcing checks appropriate to its channel—whether
-              that is aftermarket new-old-stock, verified used, or Copart-linked inventory
+              that is aftermarket new-old-stock, verified used, or auction-sourced inventory
               where regulations allow. The network coordinates QC notes, photos, and
               dispatch so what you see maps to what arrives.
             </p>

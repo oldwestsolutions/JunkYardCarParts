@@ -81,10 +81,10 @@ export default function Home() {
               Parts sourced from trusted suppliers across the U.S. and worldwide.
             </p>
             <p className="text-base sm:text-lg mb-3 text-black">
-              We leverage Copart auctions where permitted to deliver the best deals.
+              We leverage salvage and auction channels where permitted to deliver competitive pricing.
             </p>
             <p className="text-base sm:text-lg mb-6 sm:mb-8 text-black">
-              Pay with Bitcoin and book bonded, verified local mechanics when you need
+              Pay with major cards and book bonded, verified local mechanics when you need
               safe, professional installation.
             </p>
             <form
@@ -129,7 +129,7 @@ export default function Home() {
               </h3>
               <p className="text-sm text-center text-gray-800 mb-6 px-2">
                 Spotlight listings from our global auto parts marketplace—verified
-                suppliers and regulated Copart participation where available.
+                suppliers and regulated auction participation where available.
               </p>
               <div className="relative">
                 <div className="overflow-hidden rounded-lg">
@@ -251,8 +251,8 @@ export default function Home() {
           <h2 className="retro-title px-1">SHOP BY CATEGORY</h2>
           <p className="text-center text-black/80 max-w-3xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base px-1">
             Browse a global auto parts marketplace built on regulated sourcing:
-            Copart auction parts where permitted, clear condition notes, and suppliers
-            screened for compliance. Crypto car parts payments and bonded mechanic
+            Salvage and auction-sourced parts where permitted, clear condition notes, and suppliers
+            screened for compliance. Card payments and bonded mechanic
             installation options are available at checkout on eligible orders.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">

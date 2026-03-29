@@ -2,26 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import { MOCK_CART_ITEMS } from '@/data/mock-cart';
 
-// Mock cart data - in a real app, this would come from your state management
-const cartItems = [
-  {
-    id: 1,
-    name: 'Performance Exhaust System',
-    price: 299.99,
-    image:
-      'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=400&q=80',
-    quantity: 1,
-  },
-  {
-    id: 2,
-    name: 'LED Headlight Kit',
-    price: 149.99,
-    image:
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=80',
-    quantity: 2,
-  },
-];
+const cartItems = [...MOCK_CART_ITEMS];
 
 export default function CheckoutPage() {
   const [formData, setFormData] = useState({
@@ -175,10 +158,8 @@ export default function CheckoutPage() {
                   Payment Information
                 </h2>
                 <p className="text-sm text-gray-600 mb-4">
-                  Pay with major cards here, or—when your order qualifies—complete{' '}
-                  <span className="font-medium">global auto parts Bitcoin</span>{' '}
-                  checkout in a separate secure flow that mirrors our regulated sourcing
-                  and compliance controls.
+                  Pay with major cards through our secure processor. All transactions follow our
+                  regulated sourcing and compliance controls.
                 </p>
                 <div className="space-y-4">
                   <div>

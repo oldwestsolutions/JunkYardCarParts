@@ -15,7 +15,7 @@ const products = [
       'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=800&q=80',
     rating: 4.5,
     sourceLocation: 'Dalton, GA, USA · Verified supplier',
-    copartLotId: '8843215-US',
+    sourceLotId: '8843215-US',
     condition: 'New – aftermarket (verified SKU)',
     verification:
       'Supplier credential check + packaging photos on file before listing.',
@@ -29,7 +29,7 @@ const products = [
       'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80',
     rating: 4.2,
     sourceLocation: 'Ontario, CA, USA · Verified supplier',
-    copartLotId: null,
+    sourceLotId: null,
     condition: 'New – open box; inspected for weave defects',
     verification: 'QC pass documented; serial sticker cross-checked.',
   },
@@ -42,7 +42,7 @@ const products = [
       'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80',
     rating: 4.8,
     sourceLocation: 'Rotterdam, NL · EU fulfillment partner',
-    copartLotId: null,
+    sourceLotId: null,
     condition: 'New – sealed retail',
     verification: 'EU partner onboarding + invoice match on dispatch.',
   },
@@ -54,11 +54,11 @@ const products = [
     image:
       'https://images.unsplash.com/photo-1486262715619-67b85e81a29d?auto=format&fit=crop&w=800&q=80',
     rating: 4.3,
-    sourceLocation: 'Houston, TX, USA · Copart lane (where permitted)',
-    copartLotId: '7721044-TX',
+    sourceLocation: 'Houston, TX, USA · Salvage lane (verified)',
+    sourceLotId: '7721044-TX',
     condition: 'Used – tested good; mileage unknown',
     verification:
-      'Copart run & bid documentation; bench airflow test prior to ship.',
+      'Auction run & bid documentation on file; bench airflow test prior to ship.',
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ const products = [
       'https://images.unsplash.com/photo-1503376780353-7e66929fa8a9?auto=format&fit=crop&w=800&q=80',
     rating: 4.6,
     sourceLocation: 'Nagoya, JP · Verified supplier',
-    copartLotId: null,
+    sourceLotId: null,
     condition: 'New – custom build to order',
     verification: 'Factory photos + buyer sign-off before international ship.',
   },
@@ -82,7 +82,7 @@ const products = [
       'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80',
     rating: 4.4,
     sourceLocation: 'Chicago, IL, USA · Verified supplier',
-    copartLotId: '6619022-IL',
+    sourceLotId: '6619022-IL',
     condition: 'New – take-off; stored indoors',
     verification: 'Spring rate tag photo + alignment recommendation supplied.',
   },
@@ -153,8 +153,8 @@ function ProductsContent({ basePath }: ProductsContentProps) {
         <p className="text-sm text-gray-600 mb-6 max-w-3xl sm:text-base">
           Junkyard Car Parts is a <span className="font-medium">used car parts marketplace</span>{' '}
           focused on transparent listings: OEM and aftermarket, new-old-stock where noted, and
-          recycled components when condition is documented. Eligible orders may offer{' '}
-          <span className="font-medium">crypto payments</span> and{' '}
+          recycled components when condition is documented.           Eligible orders may offer{' '}
+          <span className="font-medium">express checkout</span> and{' '}
           <span className="font-medium">bonded mechanic installation</span> in supported areas.
         </p>
 
@@ -281,10 +281,10 @@ function ProductsContent({ basePath }: ProductsContentProps) {
                       <span className="font-semibold text-gray-600">Source: </span>
                       {product.sourceLocation}
                     </p>
-                    {product.copartLotId && (
+                    {product.sourceLotId && (
                       <p className="text-xs text-gray-500 mb-1">
-                        <span className="font-semibold text-gray-600">Copart lot: </span>
-                        {product.copartLotId}
+                        <span className="font-semibold text-gray-600">Source lot: </span>
+                        {product.sourceLotId}
                       </p>
                     )}
                     <p className="text-xs text-gray-500 mb-1">
@@ -296,7 +296,7 @@ function ProductsContent({ basePath }: ProductsContentProps) {
                       {product.verification}
                     </p>
                     <p className="text-xs text-gray-700 mb-2">
-                      Purchase this part securely using Bitcoin.
+                      Purchase this part securely with major cards or approved payment methods.
                     </p>
                     <p className="text-xs text-gray-700 mb-2">
                       Arrange professional installation with verified mechanics near you.
