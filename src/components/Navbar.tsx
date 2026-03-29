@@ -9,11 +9,7 @@ import {
   MenuHeading,
   MenuSeparator,
 } from '@headlessui/react';
-import {
-  ShoppingCartIcon,
-  UserCircleIcon,
-  ChevronDownIcon,
-} from '@heroicons/react/24/outline';
+import { ShoppingCartIcon, UserCircleIcon } from '@heroicons/react/24/outline';
 
 const accountLinks = [
   { href: '/products', label: 'Shop all parts' },
@@ -54,10 +50,12 @@ const Navbar = () => {
             </Link>
 
             <Menu as="div" className="relative">
-              <MenuButton className="retro-button flex items-center gap-1.5 px-3 py-2 text-sm font-bold uppercase tracking-wide">
+              <MenuButton
+                className="retro-button p-2"
+                title="Account"
+                aria-label="Account menu"
+              >
                 <UserCircleIcon className="h-6 w-6 shrink-0" aria-hidden />
-                <span className="hidden sm:inline">Account</span>
-                <ChevronDownIcon className="h-4 w-4 shrink-0" aria-hidden />
               </MenuButton>
               <MenuItems
                 transition

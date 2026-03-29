@@ -5,12 +5,7 @@ import Link from "next/link";
 import { useState, useEffect, type FormEvent } from "react";
 import { useRouter } from "next/navigation";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
-
-/** Pexels CDN — avoids Next/Image optimizer issues for these two category tiles */
-const CATEGORY_IMG_INTERIOR =
-  "https://images.pexels.com/photos/1149831/pexels-photo-1149831.jpeg?auto=compress&cs=tinysrgb&w=800";
-const CATEGORY_IMG_BRAKES =
-  "https://images.pexels.com/photos/3807277/pexels-photo-3807277.jpeg?auto=compress&cs=tinysrgb&w=800";
+import { SHOP_CATEGORIES, getCategoryImageSrc } from "@/data/shop-categories";
 
 export default function Home() {
   const router = useRouter();
@@ -248,7 +243,10 @@ export default function Home() {
       </section>
 
       {/* Featured Categories */}
-      <section className="py-10 sm:py-16 bg-[var(--primary-color)] border-y-2 border-black">
+      <section
+        id="shop-by-category"
+        className="py-10 sm:py-16 bg-[var(--primary-color)] border-y-2 border-black scroll-mt-20"
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="retro-title px-1">SHOP BY CATEGORY</h2>
           <p className="text-center text-black/80 max-w-3xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base px-1">
@@ -258,103 +256,36 @@ export default function Home() {
             installation options are available at checkout on eligible orders.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
-            {[
-              {
-                title: "ENGINE PARTS",
-                description: "Power up your ride!",
-                image:
-                  "https://images.unsplash.com/photo-1494976388531-d1058494cdd8?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "EXTERIOR PARTS",
-                description: "Make it look mean!",
-                image:
-                  "https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "INTERIOR PARTS",
-                description: "Level up your interior!",
-                image:
-                  "https://images.unsplash.com/photo-1616423645488-daf7c3a0b8dd?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "SUSPENSION",
-                description: "Ride like a pro!",
-                image:
-                  "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "BRAKES",
-                description: "Stop on a dime!",
-                image:
-                  "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "LIGHTING",
-                description: "Light up the night!",
-                image:
-                  "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "EXHAUST",
-                description: "Sound like a beast!",
-                image:
-                  "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "WHEELS & TIRES",
-                description: "Roll in style!",
-                image:
-                  "https://images.unsplash.com/photo-1555215695-3004980ad54e?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-              {
-                title: "ELECTRONICS",
-                description: "Tech up your ride!",
-                image:
-                  "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=640&h=384&q=80",
-              },
-            ].map((category) => (
-              <div
-                key={category.title}
-                className="retro-card group relative overflow-hidden"
-              >
-                <div className="relative h-48 bg-gray-200">
-                  {category.title === "INTERIOR PARTS" ? (
+            {SHOP_CATEGORIES.map((category) => {
+              const imgSrc = getCategoryImageSrc(category);
+              const unopt =
+                category.imageVariant === "interior" ||
+                category.imageVariant === "brakes";
+              return (
+                <Link
+                  key={category.slug}
+                  href={`/categories/${category.slug}`}
+                  className="retro-card group relative block overflow-hidden text-left transition-colors hover:bg-neutral-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black"
+                >
+                  <div className="relative h-48 bg-gray-200">
                     <Image
-                      src={CATEGORY_IMG_INTERIOR}
+                      src={imgSrc}
                       alt={category.description}
                       fill
-                      className="object-cover"
+                      className="object-cover transition-transform duration-300 group-hover:scale-[1.02]"
                       sizes="(max-width:768px)100vw,33vw"
-                      unoptimized
+                      unoptimized={unopt}
                     />
-                  ) : category.title === "BRAKES" ? (
-                    <Image
-                      src={CATEGORY_IMG_BRAKES}
-                      alt={category.description}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width:768px)100vw,33vw"
-                      unoptimized
-                    />
-                  ) : (
-                    <Image
-                      src={category.image}
-                      alt={category.description}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width:768px)100vw,33vw"
-                    />
-                  )}
-                </div>
-                <div className="p-4">
-                  <h3 className="text-xl font-bold mb-2 text-black">
-                    {category.title}
-                  </h3>
-                  <p className="text-gray-600">{category.description}</p>
-                </div>
-              </div>
-            ))}
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-xl font-bold mb-2 text-black">
+                      {category.title}
+                    </h3>
+                    <p className="text-gray-600">{category.description}</p>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
