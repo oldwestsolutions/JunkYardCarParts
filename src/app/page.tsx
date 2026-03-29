@@ -5,9 +5,6 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
-const heroBg =
-  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80";
-
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
@@ -69,16 +66,6 @@ export default function Home() {
     <div className="min-h-screen bg-[var(--background-color)]">
       {/* Hero Section — full viewport minus navbar so next band sits below the fold */}
       <section className="relative min-h-[calc(100dvh-4rem)] bg-[var(--primary-color)] border-b-2 border-black flex flex-col justify-center">
-        <div className="absolute inset-0">
-          <Image
-            src={heroBg}
-            alt="Performance and classic cars — automotive marketplace hero"
-            fill
-            className="object-cover opacity-20"
-            priority
-            sizes="100vw"
-          />
-        </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex flex-col lg:flex-row items-center gap-10 lg:min-h-[calc(100dvh-4rem)]">
           <div className="max-w-2xl w-full">
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black [text-shadow:3px_3px_0px_#FFFFFF]">
