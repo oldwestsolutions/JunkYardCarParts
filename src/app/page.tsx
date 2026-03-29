@@ -5,46 +5,54 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/outline";
 
+const heroBg =
+  "https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1920&q=80";
+
 export default function Home() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
+
   const featuredParts = [
     {
       name: "Garrett GTX3584RS Turbo",
       price: "$1,299.99",
-      image: "/images/featured/garrett-turbo.jpg",
-      description: "High-performance ball bearing turbocharger for maximum power gains"
+      image:
+        "https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=900&q=80",
+      description: "High-performance ball bearing turbocharger for maximum power gains",
     },
     {
       name: "Brembo GT-R Brake Kit",
       price: "$3,499.99",
-      image: "/images/featured/brembo-brakes.jpg",
-      description: "6-piston caliper brake system with 380mm rotors"
+      image:
+        "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=900&q=80",
+      description: "6-piston caliper brake system with 380mm rotors",
     },
     {
       name: "HKS Hi-Power Exhaust",
       price: "$899.99",
-      image: "/images/featured/hks-exhaust.jpg",
-      description: "Full titanium exhaust system with aggressive sound"
+      image:
+        "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=900&q=80",
+      description: "Full titanium exhaust system with aggressive sound",
     },
     {
       name: "KW Variant 3 Coilovers",
       price: "$2,199.99",
-      image: "/images/featured/kw-coilovers.jpg",
-      description: "Adjustable suspension system for track and street"
+      image:
+        "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=900&q=80",
+      description: "Adjustable suspension system for track and street",
     },
     {
       name: "AEM Infinity ECU",
       price: "$1,599.99",
-      image: "/images/featured/aem-ecu.jpg",
-      description: "Standalone engine management system with advanced tuning"
-    }
+      image:
+        "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=80",
+      description: "Standalone engine management system with advanced tuning",
+    },
   ];
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % featuredParts.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 5000);
 
     return () => clearInterval(timer);
   }, [featuredParts.length]);
@@ -59,25 +67,25 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[var(--background-color)]">
-      {/* Hero Section */}
-      <section className="relative h-[600px] bg-[var(--primary-color)] border-b-2 border-black">
+      {/* Hero Section — full viewport minus navbar so next band sits below the fold */}
+      <section className="relative min-h-[calc(100dvh-4rem)] bg-[var(--primary-color)] border-b-2 border-black flex flex-col justify-center">
         <div className="absolute inset-0">
           <Image
-            src="/hero-bg.jpg"
-            alt="Car parts background"
+            src={heroBg}
+            alt="Performance and classic cars — automotive marketplace hero"
             fill
             className="object-cover opacity-20"
             priority
+            sizes="100vw"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="max-w-2xl">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full flex flex-col lg:flex-row items-center gap-10 lg:min-h-[calc(100dvh-4rem)]">
+          <div className="max-w-2xl w-full">
             <h1 className="text-5xl sm:text-6xl font-bold mb-6 text-black [text-shadow:3px_3px_0px_#FFFFFF]">
               JUNKYARD CAR PARTS
             </h1>
-            <p className="text-2xl mb-4 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
-              The transparent, crypto-enabled marketplace for drivers who want real
-              choice—competitive pricing, verified quality, and trusted sourcing.
+            <p className="text-2xl mb-6 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
+              Your Ultimate Source for Custom &amp; Aftermarket Parts!
             </p>
             <p className="text-lg mb-3 text-black [text-shadow:1px_1px_0px_#FFFFFF]">
               Parts sourced from trusted suppliers across the U.S. and worldwide.
@@ -96,7 +104,7 @@ export default function Home() {
               BROWSE
             </Link>
           </div>
-          <div className="absolute right-0 top-1/2 transform -translate-y-1/2 hidden md:block w-[500px]">
+          <div className="w-full lg:w-[500px] lg:ml-auto shrink-0">
             <div className="bg-white/90 p-6 rounded-lg shadow-lg group">
               <h3 className="text-2xl font-bold mb-2 text-center text-black">
                 FEATURED PARTS
@@ -107,18 +115,19 @@ export default function Home() {
               </p>
               <div className="relative">
                 <div className="overflow-hidden rounded-lg">
-                  <div 
+                  <div
                     className="relative flex transition-transform duration-1000 ease-in-out"
                     style={{ transform: `translateX(-${currentSlide * 100}%)` }}
                   >
                     {featuredParts.map((part, index) => (
                       <div key={index} className="w-full flex-shrink-0 group">
-                        <div className="relative h-[400px] w-full overflow-hidden">
+                        <div className="relative h-[min(400px,50vh)] w-full overflow-hidden">
                           <Image
                             src={part.image}
                             alt={part.name}
                             fill
                             className="object-cover transition-transform duration-500 group-hover:scale-110"
+                            sizes="(max-width:1024px)100vw,500px"
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                             <div className="absolute bottom-0 left-0 right-0 p-6 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
@@ -139,14 +148,18 @@ export default function Home() {
                   </div>
                 </div>
                 <button
+                  type="button"
                   onClick={prevSlide}
                   className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
+                  aria-label="Previous featured part"
                 >
                   <ChevronLeftIcon className="h-6 w-6" />
                 </button>
                 <button
+                  type="button"
                   onClick={nextSlide}
                   className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/30 hover:bg-black/50 text-white p-3 rounded-full transition-all duration-200 z-10 opacity-0 group-hover:opacity-100"
+                  aria-label="Next featured part"
                 >
                   <ChevronRightIcon className="h-6 w-6" />
                 </button>
@@ -154,10 +167,12 @@ export default function Home() {
                   {featuredParts.map((_, index) => (
                     <button
                       key={index}
+                      type="button"
                       onClick={() => setCurrentSlide(index)}
                       className={`w-3 h-3 rounded-full transition-all duration-200 ${
                         currentSlide === index ? "bg-white scale-125" : "bg-white/30"
                       }`}
+                      aria-label={`Go to slide ${index + 1}`}
                     />
                   ))}
                 </div>
@@ -167,32 +182,35 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Demo 1 */}
+      {/* Bitcoin checkout spotlight */}
       <section className="py-12 bg-gradient-to-r from-black/90 to-black/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-8">
-            <div className="relative w-[400px] h-[225px] rounded-lg overflow-hidden flex-shrink-0">
-              <video
-                className="w-full h-full object-cover"
-                controls
-                poster="/video-thumbnail-1.jpg"
-              >
-                <source src="/demo-1.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative w-full md:w-[400px] h-[225px] rounded-lg overflow-hidden flex-shrink-0">
+              <Image
+                src="https://images.unsplash.com/photo-1621761191310-ee45f5d0a1cf?auto=format&fit=crop&w=800&q=80"
+                alt="Bitcoin payment option for automotive parts orders"
+                fill
+                className="object-cover"
+                sizes="(max-width:768px)100vw,400px"
+              />
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Bonded mechanic installation, done right
+                Pay with Bitcoin—we will source the part you need
               </h3>
               <p className="text-white/80 text-base mb-4">
-                See how bonded mechanic installation keeps complex jobs precise—from
-                fitment checks to final torque—so Copart-sourced parts and global
-                marketplace inventory go on safely.
+                Checkout with Bitcoin when your order qualifies for our crypto rails. From
+                common maintenance items to hard-to-find assemblies, tell us what you are
+                after and we will chase it through our verified supplier network and
+                Copart lanes where permitted—so you are not stuck hunting alone.
               </p>
-              <button className="text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors">
-                Watch Now →
-              </button>
+              <Link
+                href="/products"
+                className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
+              >
+                Shop parts →
+              </Link>
             </div>
           </div>
         </div>
@@ -211,66 +229,75 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: 'ENGINE PARTS',
-                description: 'Verified powertrain components from global suppliers.',
-                image: '/images/categories/engine.jpg',
-                xp: '1000 XP',
+                title: "ENGINE PARTS",
+                description: "Power up your ride!",
+                image:
+                  "https://images.unsplash.com/photo-1486262715619-67b85e81a29d?auto=format&fit=crop&w=800&q=80",
+                xp: "1000 XP",
                 isNew: true,
               },
               {
-                title: 'EXTERIOR PARTS',
-                description: 'Body, aero, and trim matched to stated condition codes.',
-                image: '/images/categories/exterior.jpg',
-                xp: '800 XP',
+                title: "EXTERIOR PARTS",
+                description: "Make it look mean!",
+                image:
+                  "https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80",
+                xp: "800 XP",
                 isNew: true,
               },
               {
-                title: 'INTERIOR PARTS',
-                description: 'Cabin upgrades with transparent sourcing details.',
-                image: '/images/categories/interior.jpg',
-                xp: '600 XP',
+                title: "INTERIOR PARTS",
+                description: "Level up your interior!",
+                image:
+                  "https://images.unsplash.com/photo-1503376780353-7e66929fa8a9?auto=format&fit=crop&w=800&q=80",
+                xp: "600 XP",
                 isNew: true,
               },
               {
-                title: 'SUSPENSION',
-                description: 'Street and track setups—inspect before install.',
-                image: '/images/categories/suspension.jpg',
-                xp: '900 XP',
+                title: "SUSPENSION",
+                description: "Ride like a pro!",
+                image:
+                  "https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80",
+                xp: "900 XP",
                 isNew: true,
               },
               {
-                title: 'BRAKES',
-                description: 'Stopping power sourced through vetted channels.',
-                image: '/images/categories/brakes.jpg',
-                xp: '750 XP',
+                title: "BRAKES",
+                description: "Stop on a dime!",
+                image:
+                  "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=800&q=80",
+                xp: "750 XP",
                 isNew: true,
               },
               {
-                title: 'LIGHTING',
-                description: 'LED and OEM-style lighting with verification notes.',
-                image: '/images/categories/lighting.jpg',
-                xp: '500 XP',
+                title: "LIGHTING",
+                description: "Light up the night!",
+                image:
+                  "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80",
+                xp: "500 XP",
                 isNew: true,
               },
               {
-                title: 'EXHAUST',
-                description: 'Performance exhaust—check listings for Copart lots.',
-                image: '/images/categories/exhaust.jpg',
-                xp: '850 XP',
+                title: "EXHAUST",
+                description: "Sound like a beast!",
+                image:
+                  "https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=800&q=80",
+                xp: "850 XP",
                 isNew: true,
               },
               {
-                title: 'WHEELS & TIRES',
-                description: 'Wheels, tires, and packages from trusted sellers.',
-                image: '/images/categories/wheels.jpg',
-                xp: '700 XP',
+                title: "WHEELS & TIRES",
+                description: "Roll in style!",
+                image:
+                  "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?auto=format&fit=crop&w=800&q=80",
+                xp: "700 XP",
                 isNew: true,
               },
               {
-                title: 'ELECTRONICS',
-                description: 'Modules, audio, and tech—serial checks when supplied.',
-                image: '/images/categories/electronics.jpg',
-                xp: '650 XP',
+                title: "ELECTRONICS",
+                description: "Tech up your ride!",
+                image:
+                  "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+                xp: "650 XP",
                 isNew: true,
               },
             ].map((category) => (
@@ -281,9 +308,10 @@ export default function Home() {
                 <div className="relative h-48">
                   <Image
                     src={category.image}
-                    alt={category.title}
+                    alt={`${category.title} — ${category.description}`}
                     fill
                     className="object-cover"
+                    sizes="(max-width:768px)100vw,33vw"
                   />
                 </div>
                 <div className="p-4">
@@ -308,32 +336,42 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Demo 2 */}
+      {/* Auto Equity Group */}
       <section className="py-12 bg-gradient-to-r from-black/90 to-black/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-8">
-            <div className="relative w-[400px] h-[225px] rounded-lg overflow-hidden flex-shrink-0">
-              <video
-                className="w-full h-full object-cover"
-                controls
-                poster="/video-thumbnail-2.jpg"
-              >
-                <source src="/demo-2.mp4" type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="relative w-full md:w-[400px] h-[225px] rounded-lg overflow-hidden flex-shrink-0">
+              <Image
+                src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                alt="Auto Equity Group — corporate stewardship of Junkyard Car Parts"
+                fill
+                className="object-cover"
+                sizes="(max-width:768px)100vw,400px"
+              />
             </div>
             <div className="flex-1">
               <h3 className="text-2xl font-bold text-white mb-2">
-                Dealer-ready sourcing & crypto car parts payments
+                Owned &amp; backed by Auto Equity Group (AEG)
               </h3>
               <p className="text-white/80 text-base mb-4">
-                Learn how dealers tap verified, regulated inventory, priority access
-                when allowed, and crypto-enabled transactions that pair with
-                competitive Copart auction sourcing.
+                Junkyard Car Parts operates under the ownership of{" "}
+                <span className="text-white font-semibold">Auto Equity Group</span>, a
+                holding company focused on automotive retail, remarketing, and digital
+                commerce infrastructure. AEG invests in compliance-forward marketplaces,
+                verified supply chains, and the technology that connects buyers to real
+                inventory—not just listings.
               </p>
-              <button className="text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors">
-                Watch Now →
-              </button>
+              <p className="text-white/80 text-base mb-4">
+                That relationship means clearer sourcing standards, disciplined
+                operational support, and a long-term commitment to the mechanics,
+                dealers, and enthusiasts who rely on this platform every day.
+              </p>
+              <Link
+                href="/products"
+                className="inline-block text-[var(--accent-color)] text-base font-bold hover:text-white transition-colors"
+              >
+                Explore inventory →
+              </Link>
             </div>
           </div>
         </div>

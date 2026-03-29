@@ -1,0 +1,115 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Terms & Conditions | Junkyard Car Parts",
+  description:
+    "Terms and conditions for using the Junkyard Car Parts marketplace, owned by Auto Equity Group.",
+};
+
+export default function TermsPage() {
+  return (
+    <div className="min-h-screen bg-gray-50 py-12">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <p className="text-sm text-gray-500 mb-6">
+          <Link href="/" className="text-red-600 hover:text-red-700">
+            Home
+          </Link>
+          <span className="mx-2">/</span>
+          Terms &amp; Conditions
+        </p>
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">
+          Terms &amp; Conditions
+        </h1>
+        <div className="prose prose-gray max-w-none space-y-6 text-gray-700">
+          <p className="text-sm text-gray-500">
+            Last updated: {new Date().toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+          </p>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Agreement
+            </h2>
+            <p>
+              By accessing or using the Junkyard Car Parts website and services (the
+              &quot;Services&quot;), you agree to these Terms &amp; Conditions. If you do not
+              agree, do not use the Services. The Services are operated on behalf of Auto
+              Equity Group and its affiliates (collectively, &quot;AEG,&quot; &quot;we,&quot;
+              or &quot;us&quot;).
+            </p>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Marketplace &amp; third parties
+            </h2>
+            <p>
+              Listings may originate from verified suppliers, auction channels (including
+              Copart where permitted), and partner networks. Availability, pricing, and
+              condition are described on each listing. We do not guarantee that every part
+              fits every vehicle; you are responsible for confirming fitment and
+              compatibility before purchase.
+            </p>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Payments &amp; crypto
+            </h2>
+            <p>
+              We may offer card and other payment methods, and—where eligible—Bitcoin or
+              other digital asset flows through approved processors. Crypto availability,
+              fees, and settlement timing depend on program rules and compliance checks.
+              You authorize us and our processors to charge or settle transactions in
+              accordance with the checkout you complete.
+            </p>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Installation &amp; mechanics
+            </h2>
+            <p>
+              Referrals to bonded or verified mechanics are provided for convenience.
+              Installation services, if any, are between you and the service provider
+              unless otherwise stated at checkout. We are not liable for installation
+              outcomes except as required by applicable law.
+            </p>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Limitation of liability
+            </h2>
+            <p>
+              To the fullest extent permitted by law, AEG and Junkyard Car Parts are not
+              liable for indirect, incidental, or consequential damages arising from use of
+              the Services. Our aggregate liability for any claim relating to the
+              Services is limited to the amount you paid for the specific order giving
+              rise to the claim.
+            </p>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Changes
+            </h2>
+            <p>
+              We may update these terms from time to time. Continued use of the Services
+              after changes constitutes acceptance of the revised terms.
+            </p>
+          </section>
+          <section>
+            <h2 className="text-xl font-semibold text-gray-900 mt-8 mb-3">
+              Contact
+            </h2>
+            <p>
+              Questions about these terms:{" "}
+              <a
+                href="mailto:support@junkyardcarparts.com"
+                className="text-red-600 hover:text-red-700"
+              >
+                support@junkyardcarparts.com
+              </a>
+              .
+            </p>
+          </section>
+        </div>
+      </div>
+    </div>
+  );
+}

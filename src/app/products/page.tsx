@@ -11,7 +11,8 @@ const products = [
     name: 'Performance Exhaust System',
     price: 299.99,
     category: 'Exhaust',
-    image: '/products/exhaust.jpg',
+    image:
+      'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=800&q=80',
     rating: 4.5,
     sourceLocation: 'Dalton, GA, USA · Verified supplier',
     copartLotId: '8843215-US',
@@ -24,7 +25,8 @@ const products = [
     name: 'Carbon Fiber Spoiler',
     price: 199.99,
     category: 'Exterior',
-    image: '/products/spoiler.jpg',
+    image:
+      'https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=800&q=80',
     rating: 4.2,
     sourceLocation: 'Ontario, CA, USA · Verified supplier',
     copartLotId: null,
@@ -36,7 +38,8 @@ const products = [
     name: 'LED Headlight Kit',
     price: 149.99,
     category: 'Lighting',
-    image: '/products/headlights.jpg',
+    image:
+      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=800&q=80',
     rating: 4.8,
     sourceLocation: 'Rotterdam, NL · EU fulfillment partner',
     copartLotId: null,
@@ -48,7 +51,8 @@ const products = [
     name: 'Performance Air Filter',
     price: 49.99,
     category: 'Engine',
-    image: '/products/air-filter.jpg',
+    image:
+      'https://images.unsplash.com/photo-1486262715619-67b85e81a29d?auto=format&fit=crop&w=800&q=80',
     rating: 4.3,
     sourceLocation: 'Houston, TX, USA · Copart lane (where permitted)',
     copartLotId: '7721044-TX',
@@ -61,7 +65,8 @@ const products = [
     name: 'Custom Steering Wheel',
     price: 179.99,
     category: 'Interior',
-    image: '/products/steering-wheel.jpg',
+    image:
+      'https://images.unsplash.com/photo-1503376780353-7e66929fa8a9?auto=format&fit=crop&w=800&q=80',
     rating: 4.6,
     sourceLocation: 'Nagoya, JP · Verified supplier',
     copartLotId: null,
@@ -73,7 +78,8 @@ const products = [
     name: 'Lowering Springs Kit',
     price: 249.99,
     category: 'Suspension',
-    image: '/products/springs.jpg',
+    image:
+      'https://images.unsplash.com/photo-1617814076367-b759c7d7e738?auto=format&fit=crop&w=800&q=80',
     rating: 4.4,
     sourceLocation: 'Chicago, IL, USA · Verified supplier',
     copartLotId: '6619022-IL',
@@ -183,6 +189,7 @@ export default function ProductsPage() {
                     alt={product.name}
                     fill
                     className="object-cover"
+                    sizes="(max-width:640px)100vw,(max-width:1024px)50vw,33vw"
                   />
                 </div>
                 <div className="p-4">

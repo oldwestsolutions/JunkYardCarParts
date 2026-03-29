@@ -9,14 +9,16 @@ const cartItems = [
     id: 1,
     name: 'Performance Exhaust System',
     price: 299.99,
-    image: '/products/exhaust.jpg',
+    image:
+      'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=400&q=80',
     quantity: 1,
   },
   {
     id: 2,
     name: 'LED Headlight Kit',
     price: 149.99,
-    image: '/products/headlights.jpg',
+    image:
+      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=400&q=80',
     quantity: 2,
   },
 ];
@@ -258,6 +260,7 @@ export default function CheckoutPage() {
                         alt={item.name}
                         fill
                         className="object-cover rounded-md"
+                        sizes="64px"
                       />
                     </div>
                     <div className="ml-4 flex-1">

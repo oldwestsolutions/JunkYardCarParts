@@ -24,9 +24,9 @@ const product = {
     'Install supports bonded mechanic booking',
   ],
   images: [
-    '/products/exhaust-1.jpg',
-    '/products/exhaust-2.jpg',
-    '/products/exhaust-3.jpg',
+    'https://images.unsplash.com/photo-1619405399517-d7fce0f13302?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1580273916550-e323be2ae537?auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1486262715619-67b85e81a29d?auto=format&fit=crop&w=1200&q=80',
   ],
   rating: 4.5,
   reviews: 128,
@@ -49,6 +49,7 @@ export default function ProductPage() {
                 alt={product.name}
                 fill
                 className="object-cover rounded-lg"
+                sizes="(max-width:768px)100vw,50vw"
               />
             </div>
             <div className="flex gap-2">
@@ -65,6 +66,7 @@ export default function ProductPage() {
                     alt={`${product.name} view ${index + 1}`}
                     fill
                     className="object-cover"
+                    sizes="80px"
                   />
                 </button>
               ))}
