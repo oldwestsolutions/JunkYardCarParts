@@ -26,13 +26,6 @@ export default function Home() {
       description: "High-performance ball bearing turbocharger for maximum power gains",
     },
     {
-      name: "Brembo GT-R Brake Kit",
-      price: "$3,499.99",
-      image:
-        "https://images.unsplash.com/photo-1487754180451-c456f29a5e53?auto=format&fit=crop&w=900&q=80",
-      description: "6-piston caliper brake system with 380mm rotors",
-    },
-    {
       name: "HKS Hi-Power Exhaust",
       price: "$899.99",
       image:
