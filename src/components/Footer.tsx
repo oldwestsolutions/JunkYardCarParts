@@ -11,39 +11,51 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <h3 className="text-lg font-semibold mb-4">Products</h3>
             <ul className="space-y-2">
               <li>
                 <Link href="/products" className="text-gray-400 hover:text-white">
-                  Products
+                  Shop all parts
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Solutions</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link href="/solutions" className="text-gray-400 hover:text-white">
+                  Overview
                 </Link>
               </li>
               <li>
-                <Link href="/solutions" className="text-gray-400 hover:text-white">
-                  Solutions
+                <Link href="/legal" className="text-gray-400 hover:text-white">
+                  Legal
                 </Link>
               </li>
+              <li>
+                <Link href="/blockchain" className="text-gray-400 hover:text-white">
+                  Blockchain
+                </Link>
+              </li>
+              <li>
+                <Link href="/network" className="text-gray-400 hover:text-white">
+                  Network
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Company</h3>
+            <ul className="space-y-2 mb-4">
               <li>
                 <Link href="/contact" className="text-gray-400 hover:text-white">
                   Contact
                 </Link>
               </li>
             </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Customer Service</h3>
-            <ul className="space-y-2">
-              <li>
-                <Link href="/legal" className="text-gray-400 hover:text-white">
-                  Legal
-                </Link>
-              </li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <p className="flex items-start gap-2 text-sm text-gray-400 sm:text-base">
               <MapPinIcon className="mt-0.5 h-5 w-5 shrink-0 text-gray-300" aria-hidden />
               <span>Louisiana, USA</span>
