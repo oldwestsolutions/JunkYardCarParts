@@ -236,7 +236,7 @@ export default function Home() {
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-2 sm:text-2xl">
-                3D-printed parts from XYZ Industries
+                XYZIndustries
               </h3>
               <p className="text-white/80 text-sm sm:text-base mb-4">
                 Junkyard Car Parts works with{" "}
