@@ -148,13 +148,9 @@ export default function Home() {
           </div>
           <div className="w-full lg:w-[500px] lg:ml-auto shrink-0">
             <div className="border-2 border-black bg-white/90 p-6 rounded-lg group">
-              <h3 className="text-2xl font-bold mb-2 text-center text-black">
+              <h3 className="text-2xl font-bold mb-6 text-center text-black">
                 FEATURED PARTS
               </h3>
-              <p className="text-sm text-center text-gray-800 mb-6 px-2">
-                Spotlight listings from our global auto parts marketplace—verified
-                suppliers and regulated auction participation where available.
-              </p>
               <div className="relative">
                 <div className="overflow-hidden rounded-lg">
                   <div
@@ -274,7 +270,7 @@ export default function Home() {
         className="py-10 sm:py-16 bg-[var(--primary-color)] border-y-2 border-black scroll-mt-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="retro-title px-1">Catalog</h2>
+          <h2 className="retro-title px-1 normal-case">Shop by category</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8">
             {SHOP_CATEGORIES.map((category) => {
               const imgSrc = getCategoryImageSrc(category);
