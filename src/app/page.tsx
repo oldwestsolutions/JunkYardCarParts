@@ -113,14 +113,36 @@ export default function Home() {
                 Search
               </button>
             </form>
-            <p className="mt-4 text-sm text-black/80">
+            <p className="mt-4 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-black/80">
               <MotionLink
-                href="/products"
-                className="underline font-semibold hover:text-black"
+                href="/marketplace"
+                className="font-semibold text-black no-underline hover:opacity-80"
                 whileHover={{ opacity: 0.85 }}
                 whileTap={{ scale: 0.98 }}
               >
-                View all parts
+                Marketplace
+              </MotionLink>
+              <span className="text-black/40 select-none" aria-hidden>
+                ·
+              </span>
+              <MotionLink
+                href="/signature"
+                className="font-semibold text-black no-underline hover:opacity-80"
+                whileHover={{ opacity: 0.85 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Signature
+              </MotionLink>
+              <span className="text-black/40 select-none" aria-hidden>
+                ·
+              </span>
+              <MotionLink
+                href="/shop-cars"
+                className="font-semibold text-black no-underline hover:opacity-80"
+                whileHover={{ opacity: 0.85 }}
+                whileTap={{ scale: 0.98 }}
+              >
+                Cars
               </MotionLink>
             </p>
           </div>
