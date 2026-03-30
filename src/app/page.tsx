@@ -270,8 +270,7 @@ export default function Home() {
         className="py-10 sm:py-16 bg-[var(--primary-color)] border-y-2 border-black scroll-mt-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="retro-title px-1 normal-case">Shop by category</h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
             {SHOP_CATEGORIES.map((category) => {
               const imgSrc = getCategoryImageSrc(category);
               const unopt =
