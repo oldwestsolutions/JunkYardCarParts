@@ -6,7 +6,15 @@ import MinimalFooter from '@/components/MinimalFooter';
 
 const NO_FOOTER_PATHS = ['/help-center'] as const;
 
-const MINIMAL_FOOTER_PATHS = ['/legal', '/blockchain', '/network', '/marketplace', '/signature'] as const;
+const MINIMAL_FOOTER_PATHS = [
+  '/legal',
+  '/blockchain',
+  '/network',
+  '/marketplace',
+  '/signature',
+  '/learn-more',
+  '/categories',
+] as const;
 
 export default function FooterSwitcher() {
   const pathname = usePathname();
