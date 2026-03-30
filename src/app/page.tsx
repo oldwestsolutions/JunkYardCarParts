@@ -321,7 +321,7 @@ export default function Home() {
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-2 sm:text-2xl">
-                Owned &amp; backed by Auto Equity Group (AEG)
+                Owned and Operated by Auto Equity Group (AEG)
               </h3>
               <p className="text-white/80 text-sm sm:text-base mb-4">
                 Junkyard Car Parts operates under the ownership of{" "}
