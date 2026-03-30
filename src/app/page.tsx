@@ -270,18 +270,12 @@ export default function Home() {
 
       {/* Featured Categories */}
       <section
-        id="shop-by-category"
+        id="catalog"
         className="py-10 sm:py-16 bg-[var(--primary-color)] border-y-2 border-black scroll-mt-20"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="retro-title px-1">SHOP BY CATEGORY</h2>
-          <p className="text-center text-black/80 max-w-3xl mx-auto mb-8 sm:mb-10 text-sm sm:text-base px-1">
-            Browse a global auto parts marketplace built on regulated sourcing:
-            Salvage and auction-sourced parts where permitted, clear condition notes, and suppliers
-            screened for compliance. Card payments and bonded mechanic
-            installation options are available at checkout on eligible orders.
-          </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
+          <h2 className="retro-title px-1">Catalog</h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 mt-6 sm:mt-8">
             {SHOP_CATEGORIES.map((category) => {
               const imgSrc = getCategoryImageSrc(category);
               const unopt =

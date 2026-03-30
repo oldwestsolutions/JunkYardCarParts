@@ -48,7 +48,7 @@ export default async function CategoryPage({ params }: Props) {
               Home
             </MotionLink>
             <span className="mx-2 text-black/40">/</span>
-            <MotionLink href="/#shop-by-category" className="font-medium underline-offset-4 hover:underline">
+            <MotionLink href="/#catalog" className="font-medium underline-offset-4 hover:underline">
               Categories
             </MotionLink>
             <span className="mx-2 text-black/40">/</span>
