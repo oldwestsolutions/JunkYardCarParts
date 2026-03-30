@@ -220,14 +220,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Auto Equity Group — vehicle shopping */}
+      {/* XYZ Industries — 3D printed parts */}
       <section className="py-8 sm:py-12 bg-gradient-to-r from-black/90 to-black/70">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6 md:gap-8">
             <div className="relative mx-auto w-full max-w-md md:max-w-none md:w-[400px] h-[200px] sm:h-[240px] rounded-lg overflow-hidden flex-shrink-0 border-2 border-white/10">
               <Image
-                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80"
-                alt="New and pre-owned vehicles at an Auto Equity Group affiliated dealership lot"
+                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80"
+                alt="Additive manufacturing and 3D printed components"
                 fill
                 className="object-cover"
                 sizes="(max-width:768px)100vw,400px"
@@ -236,28 +236,28 @@ export default function Home() {
             </div>
             <div className="flex-1">
               <h3 className="text-xl font-bold text-white mb-2 sm:text-2xl">
-                Shop your next vehicle with Auto Equity Group
+                3D-printed parts from XYZ Industries
               </h3>
               <p className="text-white/80 text-sm sm:text-base mb-4">
-                Junkyard Car Parts sits alongside Auto Equity Group&apos;s retail and
-                remarketing footprint—so you are not only sourcing parts here, you can
-                shop cars, trucks, and SUVs through the same ecosystem of trusted
-                inventory, transparent pricing, and finance-friendly workflows AEG is
-                known for.
+                Junkyard Car Parts works with{" "}
+                <span className="text-white font-semibold">XYZ Industries</span> to offer
+                additively manufactured components—custom brackets, adapters, trim pieces,
+                and short-run hardware printed to spec with durable materials and
+                repeatable quality you can trust in the garage or on the road.
               </p>
               <p className="text-white/80 text-sm sm:text-base mb-4">
-                Whether you need a daily driver, a work truck, or something special to
-                match the build in your garage, start with AEG-backed selection and let
-                our teams help you land the right vehicle before you bolt on upgrades from
-                our inventory.
+                Whether you are prototyping a one-off or need small-batch pieces to
+                complement salvage and aftermarket inventory, XYZ-backed 3D printing
+                expands what you can install on your build without waiting on traditional
+                tooling.
               </p>
               <MotionLink
-                href="/shop-cars"
+                href="/products"
                 className="inline-block text-gray-300 text-base font-bold hover:text-white transition-colors"
                 whileHover={{ x: 4 }}
                 whileTap={{ scale: 0.98 }}
               >
-                Shop Cars
+                Shop Parts
               </MotionLink>
             </div>
           </div>
