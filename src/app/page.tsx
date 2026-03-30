@@ -149,7 +149,7 @@ export default function Home() {
           <div className="w-full lg:w-[500px] lg:ml-auto shrink-0">
             <div className="border-2 border-black bg-white/90 p-6 rounded-lg group">
               <h3 className="text-2xl font-bold mb-6 text-center text-black">
-                FEATURED PARTS
+                COLLECTION
               </h3>
               <div className="relative">
                 <div className="overflow-hidden rounded-lg">
@@ -189,7 +189,7 @@ export default function Home() {
                   type="button"
                   onClick={prevSlide}
                   className="absolute left-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-all duration-200 hover:bg-black/60 md:left-4 md:opacity-0 md:group-hover:opacity-100 opacity-100"
-                  aria-label="Previous featured part"
+                  aria-label="Previous collection item"
                 >
                   <ChevronLeftIcon className="h-6 w-6" />
                 </button>
@@ -197,7 +197,7 @@ export default function Home() {
                   type="button"
                   onClick={nextSlide}
                   className="absolute right-2 top-1/2 z-10 flex h-11 w-11 -translate-y-1/2 items-center justify-center rounded-full bg-black/40 text-white transition-all duration-200 hover:bg-black/60 md:right-4 md:opacity-0 md:group-hover:opacity-100 opacity-100"
-                  aria-label="Next featured part"
+                  aria-label="Next collection item"
                 >
                   <ChevronRightIcon className="h-6 w-6" />
                 </button>
@@ -226,8 +226,8 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-stretch md:items-center gap-6 md:gap-8">
             <div className="relative mx-auto w-full max-w-md md:max-w-none md:w-[400px] h-[200px] sm:h-[240px] rounded-lg overflow-hidden flex-shrink-0 border-2 border-white/10">
               <Image
-                src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=900&q=80"
-                alt="Additive manufacturing and 3D printed components"
+                src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?auto=format&fit=crop&w=900&q=80"
+                alt="New and pre-owned vehicles at an Auto Equity Group affiliated dealership lot"
                 fill
                 className="object-cover"
                 sizes="(max-width:768px)100vw,400px"
